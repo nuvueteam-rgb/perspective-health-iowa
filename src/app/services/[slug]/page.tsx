@@ -65,7 +65,7 @@ export default function ServicePage({ params }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
         {/* Breadcrumb */}
-        <div className="absolute top-6 left-0 right-0">
+        <div className="absolute top-24 left-0 right-0">
           <nav
             aria-label="Breadcrumb"
             className="section-container text-sm text-white/70"
