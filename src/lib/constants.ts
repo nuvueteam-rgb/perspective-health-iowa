@@ -2,15 +2,15 @@ export const SITE_CONFIG = {
   name: "Perspective Health Iowa",
   tagline: "Experience Healthcare From A New Perspective",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://perspectivehealthiowa.com",
-  phone: "(712) 555-0100", // PLACEHOLDER
-  phoneRaw: "17125550100",  // PLACEHOLDER
+  phone: "(515) 724-0377",
+  phoneRaw: "15157240377",
   email: "info@perspectivehealthiowa.com",
   address: {
-    street: "123 Health Drive, Suite 200", // PLACEHOLDER
-    city: "Council Bluffs",
+    street: "8860 Northpark Dr, Suite 200",
+    city: "Urbandale",
     state: "IA",
-    zip: "51501", // PLACEHOLDER
-    full: "123 Health Drive, Suite 200, Council Bluffs, IA 51501", // PLACEHOLDER
+    zip: "50131",
+    full: "8860 Northpark Dr, Suite 200, Urbandale, IA 50131",
   },
   hours: {
     monday: "8:00 AM – 5:00 PM",
@@ -151,8 +151,8 @@ export const NAVIGATION_LINKS = [
       href: `/services/${s.slug}`,
     })),
   },
-  { label: "About Us", href: "/about" },
-  { label: "Insurance/Pricing", href: "/insurance" },
+  { label: "Our Team", href: "/about" },
   { label: "For Our Patients", href: "/for-patients" },
+  { label: "Insurance", href: "/insurance" },
   { label: "Contact Us", href: "/contact" },
 ];
