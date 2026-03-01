@@ -148,43 +148,44 @@ export default function ForPatientsPage() {
 
       {/* What to bring */}
       <section className="section-padding bg-sage/40">
-        <div className="section-container max-w-3xl">
-          <div className="flex items-start gap-5">
-            <div className="w-14 h-14 rounded-2xl bg-teal flex items-center justify-center flex-shrink-0">
+        <div className="section-container">
+          <div className="text-center mb-10">
+            <div className="w-14 h-14 rounded-2xl bg-teal flex items-center justify-center mx-auto mb-4">
               <FileText size={24} className="text-white" />
             </div>
-            <div>
-              <h2 className="text-2xl font-bold text-charcoal mb-4">
-                What to Bring to Your Appointment
-              </h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {[
-                  "Photo ID",
-                  "Insurance card(s)",
-                  "List of current medications with dosages",
-                  "List of current supplements",
-                  "Recent lab work or medical records",
-                  "List of symptoms and health concerns",
-                  "Health goals and questions for your provider",
-                  "Emergency contact information",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-2 text-gray-600 text-sm"
-                  >
-                    <span className="w-2 h-2 rounded-full bg-teal flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <h2 className="text-3xl font-extrabold text-charcoal">
+              What to Bring to Your Appointment
+            </h2>
+            <p className="text-gray-500 mt-2 max-w-lg mx-auto">
+              Being prepared helps us make the most of your time together.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {[
+              { item: "Photo ID", icon: "🪪" },
+              { item: "Insurance card(s)", icon: "💳" },
+              { item: "Current medications with dosages", icon: "💊" },
+              { item: "Current supplements", icon: "🌿" },
+              { item: "Recent lab work or medical records", icon: "🧪" },
+              { item: "Symptoms and health concerns", icon: "📋" },
+              { item: "Health goals and questions", icon: "🎯" },
+              { item: "Emergency contact info", icon: "📞" },
+            ].map(({ item, icon }) => (
+              <div
+                key={item}
+                className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 flex items-start gap-3 hover:shadow-md hover:border-teal/30 transition-all"
+              >
+                <span className="text-xl flex-shrink-0 mt-0.5">{icon}</span>
+                <span className="text-sm text-gray-700 font-medium leading-relaxed">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="section-padding bg-white">
-        <div className="section-container max-w-3xl">
+        <div className="section-container max-w-5xl">
           <div className="text-center mb-12">
             <p className="font-script text-3xl text-teal mb-2">Questions?</p>
             <h2 className="text-3xl font-extrabold text-charcoal">
@@ -193,11 +194,11 @@ export default function ForPatientsPage() {
             <div className="w-16 h-1 bg-teal rounded-full mx-auto mt-4" />
           </div>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {faqs.map((faq, i) => (
               <details
                 key={i}
-                className="group border border-gray-200 rounded-xl overflow-hidden"
+                className="group border border-gray-200 rounded-xl overflow-hidden self-start"
               >
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-sage/30 transition-colors list-none">
                   <h3 className="font-semibold text-charcoal pr-4 text-sm sm:text-base">
@@ -217,7 +218,9 @@ export default function ForPatientsPage() {
 
           {/* Still have questions */}
           <div className="mt-10 bg-purple/10 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <Phone size={24} className="text-purple flex-shrink-0" />
+            <div className="w-11 h-11 rounded-xl bg-purple/20 flex items-center justify-center flex-shrink-0">
+              <Phone size={20} className="text-purple" />
+            </div>
             <div className="flex-grow">
               <p className="font-semibold text-charcoal">Still have questions?</p>
               <p className="text-gray-600 text-sm">

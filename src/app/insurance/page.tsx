@@ -72,7 +72,9 @@ export default function InsurancePage() {
           </div>
 
           <div className="bg-teal/10 border border-teal/20 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Phone size={24} className="text-teal flex-shrink-0" />
+            <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0">
+              <Phone size={20} className="text-teal" />
+            </div>
             <div className="flex-grow">
               <p className="font-semibold text-charcoal">
                 Not sure if we accept your insurance?
@@ -159,61 +161,35 @@ export default function InsurancePage() {
             fair self-pay rates. Contact us for a personalized quote.
           </p>
 
-          <div className="overflow-hidden rounded-2xl border border-gray-200">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-charcoal text-white">
-                  <th className="text-left py-4 px-6 font-semibold">Service</th>
-                  <th className="text-right py-4 px-6 font-semibold">
-                    Self-Pay Rate
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {[
-                  {
-                    service: "New Patient Comprehensive Visit (60–90 min)",
-                    rate: "Contact for pricing",
-                  },
-                  {
-                    service: "Follow-Up Visit (30 min)",
-                    rate: "Contact for pricing",
-                  },
-                  {
-                    service: "Hormone Evaluation & Consultation",
-                    rate: "Contact for pricing",
-                  },
-                  {
-                    service: "Functional Medicine Consultation",
-                    rate: "Contact for pricing",
-                  },
-                  {
-                    service: "Nutrition Counseling Session",
-                    rate: "Contact for pricing",
-                  },
-                  {
-                    service: "Lab Processing (in addition to lab fees)",
-                    rate: "Contact for pricing",
-                  },
-                ].map((row, i) => (
-                  <tr
-                    key={i}
-                    className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}
-                  >
-                    <td className="py-4 px-6 text-charcoal">{row.service}</td>
-                    <td className="py-4 px-6 text-right text-teal font-medium">
-                      {row.rate}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
+            <h3 className="font-bold text-charcoal mb-5">Services available at self-pay rates:</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              {[
+                "New Patient Comprehensive Visit (60–90 min)",
+                "Follow-Up Visit (30 min)",
+                "Hormone Evaluation & Consultation",
+                "Functional Medicine Consultation",
+                "Nutrition Counseling Session",
+                "Lab Processing (in addition to lab fees)",
+              ].map((service, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-3 bg-sage/30 rounded-xl p-4"
+                >
+                  <CheckCircle size={16} className="text-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-700">{service}</span>
+                </div>
+              ))}
+            </div>
+            <div className="bg-teal/10 border border-teal/20 rounded-xl p-5 text-center">
+              <p className="text-charcoal font-semibold mb-1">
+                Contact us for current self-pay rates
+              </p>
+              <p className="text-gray-500 text-sm">
+                Pricing varies by service. Lab fees are billed separately. We&apos;re happy to provide a quote before your visit.
+              </p>
+            </div>
           </div>
-
-          <p className="text-gray-500 text-sm mt-4">
-            * Pricing is subject to change. Lab fees are billed separately by
-            the lab. Contact our office for the most current pricing.
-          </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <Link href="/contact" className="btn-teal">

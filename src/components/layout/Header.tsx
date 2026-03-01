@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, Phone } from "lucide-react";
-import { NAVIGATION_LINKS, SITE_CONFIG } from "@/lib/constants";
+import { NAVIGATION_LINKS, SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { PinwheelLogo } from "@/components/ui/PinwheelLogo";
 
@@ -44,9 +44,19 @@ export function Header() {
       {/* Top utility bar */}
       <div className="bg-charcoal text-white text-sm py-2 hidden md:block">
         <div className="section-container flex justify-between items-center">
-          <span className="text-gray-300">
-            Integrative Medicine &bull; Hormone Health &bull; Functional Medicine
-          </span>
+          <div className="flex items-center gap-1 text-gray-300">
+            {SERVICES.map((service, i) => (
+              <span key={service.slug} className="flex items-center">
+                {i > 0 && <span className="mx-1.5">&bull;</span>}
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="hover:text-teal transition-colors"
+                >
+                  {service.shortName}
+                </Link>
+              </span>
+            ))}
+          </div>
           <a
             href={`tel:${SITE_CONFIG.phoneRaw}`}
             className="flex items-center gap-2 text-teal hover:text-teal-300 transition-colors font-medium"

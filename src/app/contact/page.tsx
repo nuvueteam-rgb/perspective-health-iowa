@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact/ContactForm";
@@ -29,17 +30,24 @@ export default function ContactPage() {
   return (
     <>
       {/* Page hero */}
-      <section className="bg-charcoal text-white py-20 relative overflow-hidden">
+      <section className="bg-charcoal text-white py-10 relative overflow-hidden">
         <div className="absolute inset-0 geometric-pattern opacity-30" />
-        <div className="section-container relative z-10">
-          <p className="font-script text-3xl text-teal mb-2">Get in Touch</p>
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-            CONTACT US
-          </h1>
-          <p className="text-gray-300 text-lg max-w-xl">
-            Ready to start your health journey? Our team is here to help.
-            Reach out and we&apos;ll be in touch within one business day.
-          </p>
+        <div className="section-container relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold">
+              CONTACT US
+            </h1>
+            <p className="text-gray-400 text-sm mt-1">
+              We&apos;ll get back to you within one business day.
+            </p>
+          </div>
+          <a
+            href={`tel:${SITE_CONFIG.phoneRaw}`}
+            className="btn-teal inline-flex items-center gap-2"
+          >
+            <Phone size={18} />
+            {SITE_CONFIG.phone}
+          </a>
         </div>
       </section>
 
@@ -47,84 +55,108 @@ export default function ContactPage() {
       <section className="section-padding bg-white">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-            {/* Left: Contact info */}
-            <div className="lg:col-span-1 space-y-8">
-              {/* Contact details */}
-              <div>
-                <h2 className="text-xl font-bold text-charcoal mb-5">
-                  Our Information
-                </h2>
-                <ul className="space-y-5">
-                  <li>
+            {/* Left: Contact form (shown first) */}
+            <div id="contact-form" className="lg:col-span-2 lg:order-1 scroll-mt-24">
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 sm:p-10">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+                  <div>
+                    <h2 className="text-xl font-bold text-charcoal mb-1">
+                      Send Us a Message
+                    </h2>
+                    <p className="text-gray-500 text-sm">
+                      Fill out the form below and we&apos;ll get back to you within one business day.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 bg-teal/10 border border-teal/20 rounded-full px-4 py-1.5 flex-shrink-0">
+                    <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
+                    <span className="text-teal text-xs font-semibold whitespace-nowrap">Avg. reply under 4 hrs</span>
+                  </div>
+                </div>
+                <ContactForm />
+              </div>
+            </div>
+
+            {/* Right: Contact info */}
+            <div className="lg:col-span-1 lg:order-2 space-y-5">
+              <h2 className="text-xl font-bold text-charcoal mb-1">
+                Our Information
+              </h2>
+
+              {/* Phone card */}
+              <a
+                href={`tel:${SITE_CONFIG.phoneRaw}`}
+                className="block bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md hover:border-teal/40 transition-all group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 group-hover:bg-teal transition-colors">
+                    <Phone size={20} className="text-teal group-hover:text-white transition-colors" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-0.5">
+                      Phone
+                    </p>
+                    <p className="text-charcoal font-semibold group-hover:text-teal transition-colors">
+                      {SITE_CONFIG.phone}
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              {/* Email card */}
+              <a
+                href={`mailto:${SITE_CONFIG.email}`}
+                className="block bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md hover:border-teal/40 transition-all group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 group-hover:bg-teal transition-colors">
+                    <Mail size={20} className="text-teal group-hover:text-white transition-colors" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-0.5">
+                      Email
+                    </p>
+                    <p className="text-charcoal font-semibold group-hover:text-teal transition-colors break-all">
+                      {SITE_CONFIG.email}
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              {/* Address card */}
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin size={20} className="text-teal" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-0.5">
+                      Address
+                    </p>
+                    <p className="text-charcoal font-semibold">
+                      {SITE_CONFIG.address.street}
+                      <br />
+                      {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state}{" "}
+                      {SITE_CONFIG.address.zip}
+                    </p>
                     <a
-                      href={`tel:${SITE_CONFIG.phoneRaw}`}
-                      className="flex items-start gap-4 group"
+                      href={`https://maps.google.com/?q=${encodeURIComponent(SITE_CONFIG.address.full)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-teal text-sm font-medium hover:underline mt-2 inline-flex items-center gap-1"
                     >
-                      <div className="w-10 h-10 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0 group-hover:bg-teal transition-colors">
-                        <Phone size={18} className="text-teal group-hover:text-white transition-colors" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-0.5">
-                          Phone
-                        </p>
-                        <p className="text-charcoal font-medium group-hover:text-teal transition-colors">
-                          {SITE_CONFIG.phone}
-                        </p>
-                      </div>
+                      Get Directions <ArrowRight size={12} />
                     </a>
-                  </li>
-                  <li>
-                    <a
-                      href={`mailto:${SITE_CONFIG.email}`}
-                      className="flex items-start gap-4 group"
-                    >
-                      <div className="w-10 h-10 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0 group-hover:bg-teal transition-colors">
-                        <Mail size={18} className="text-teal group-hover:text-white transition-colors" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-0.5">
-                          Email
-                        </p>
-                        <p className="text-charcoal font-medium group-hover:text-teal transition-colors break-all">
-                          {SITE_CONFIG.email}
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin size={18} className="text-teal" />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-0.5">
-                        Address
-                      </p>
-                      <p className="text-charcoal font-medium">
-                        {SITE_CONFIG.address.street}
-                        <br />
-                        {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state}{" "}
-                        {SITE_CONFIG.address.zip}
-                      </p>
-                      <a
-                        href={`https://maps.google.com/?q=${encodeURIComponent(SITE_CONFIG.address.full)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-teal text-sm font-medium hover:underline mt-1 inline-flex items-center gap-1"
-                      >
-                        Get Directions <ArrowRight size={12} />
-                      </a>
-                    </div>
-                  </li>
-                </ul>
+                  </div>
+                </div>
               </div>
 
-              {/* Hours */}
-              <div>
-                <h2 className="text-xl font-bold text-charcoal mb-5 flex items-center gap-2">
+              {/* Hours card */}
+              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+                <h2 className="text-base font-bold text-charcoal mb-4 flex items-center gap-2">
                   <Clock size={18} className="text-teal" />
                   Office Hours
                 </h2>
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {hours.map(({ day, hours: h }) => (
                     <div key={day} className="flex justify-between text-sm">
                       <span className="text-gray-500 font-medium">{day}</span>
@@ -132,7 +164,7 @@ export default function ContactPage() {
                         className={
                           h === "Closed"
                             ? "text-gray-400"
-                            : "text-charcoal font-medium"
+                            : "text-charcoal font-semibold"
                         }
                       >
                         {h}
@@ -142,8 +174,8 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* New patient note */}
-              <div className="bg-teal/10 rounded-xl p-5 border border-teal/20">
+              {/* New patient card */}
+              <div className="bg-teal/10 rounded-xl p-5 border border-teal/20 shadow-sm">
                 <p className="font-semibold text-teal mb-1">New Patients Welcome</p>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   We&apos;re accepting new patients and would love to be part of
@@ -158,37 +190,45 @@ export default function ContactPage() {
                 </Link>
               </div>
             </div>
-
-            {/* Right: Contact form */}
-            <div className="lg:col-span-2">
-              <h2 className="text-xl font-bold text-charcoal mb-6">
-                Send Us a Message
-              </h2>
-              <ContactForm />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Map placeholder */}
-      <section className="h-80 bg-gray-200 relative overflow-hidden" aria-label="Office location map">
-        <div className="absolute inset-0 flex items-center justify-center bg-sage/50">
-          <div className="text-center">
-            <MapPin size={40} className="text-teal mx-auto mb-3" />
-            <p className="font-semibold text-charcoal">
+      {/* Visit us CTA */}
+      <section className="relative h-96 overflow-hidden" aria-label="Office location">
+        <Image
+          src="/images/about-clinic.jpg"
+          alt="Perspective Health Iowa clinic"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-charcoal/70" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center px-6 max-w-lg">
+            <div className="w-14 h-14 rounded-full bg-teal/20 border border-teal/40 flex items-center justify-center mx-auto mb-5">
+              <MapPin size={26} className="text-teal" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+              Visit Our Clinic
+            </h2>
+            <p className="text-white/80 text-lg mb-2">
               {SITE_CONFIG.address.full}
+            </p>
+            <p className="text-white/60 text-sm mb-6">
+              Walk-ins welcome during office hours
             </p>
             <a
               href={`https://maps.google.com/?q=${encodeURIComponent(SITE_CONFIG.address.full)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-teal mt-4 inline-flex"
+              className="btn-teal inline-flex items-center gap-2"
             >
-              Open in Google Maps
+              <MapPin size={16} />
+              Get Directions
             </a>
           </div>
         </div>
-        {/* Replace above with an actual Google Maps embed or next/image map screenshot */}
       </section>
     </>
   );

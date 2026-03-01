@@ -56,7 +56,7 @@ export function ProvidersSection() {
                   href={`/about#${provider.id}`}
                   className="inline-flex items-center gap-2 text-teal font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all"
                 >
-                  View Profile <ArrowRight size={14} />
+                  Meet {provider.name.split(" ")[0]} <ArrowRight size={14} />
                 </Link>
               </div>
             </div>
@@ -66,7 +66,7 @@ export function ProvidersSection() {
         {/* CTA */}
         <div className="text-center mt-12">
           <Link href="/about" className="btn-teal">
-            Meet Our Full Team
+            Meet Our Wonderful Team
           </Link>
         </div>
       </div>

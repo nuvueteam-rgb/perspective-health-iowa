@@ -100,9 +100,12 @@ export default function ServicePage({ params }: Props) {
         <div className="section-container">
           <div className="max-w-4xl mx-auto">
             {/* Intro */}
-            <p className="text-xl text-gray-700 leading-relaxed mb-12 border-l-4 border-teal pl-5">
-              {service.intro}
-            </p>
+            <div className="bg-teal/5 border border-teal/20 rounded-2xl p-8 mb-12 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-teal rounded-l-2xl" />
+              <p className="text-xl text-gray-700 leading-relaxed pl-4">
+                {service.intro}
+              </p>
+            </div>
 
             {/* What It Is */}
             <section className="mb-12">
@@ -113,40 +116,56 @@ export default function ServicePage({ params }: Props) {
               <p className="text-gray-600 leading-relaxed">{service.whatItIs}</p>
             </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               {/* Who It's For */}
-              <section>
-                <h2 className="text-2xl font-bold text-charcoal mb-4">
-                  Who It&apos;s For
-                </h2>
-                <ul className="space-y-3">
+              <section className="bg-white rounded-2xl border border-gray-200 shadow-sm p-7">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle size={20} className="text-teal" />
+                  </div>
+                  <h2 className="text-xl font-bold text-charcoal">
+                    Who It&apos;s For
+                  </h2>
+                </div>
+                <div className="space-y-3">
                   {service.whoItsFor.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-600">
+                    <div
+                      key={i}
+                      className="flex items-start gap-3 bg-sage/30 rounded-xl p-4"
+                    >
                       <CheckCircle
-                        size={18}
+                        size={16}
                         className="text-teal flex-shrink-0 mt-0.5"
                       />
-                      <span className="text-sm leading-relaxed">{item}</span>
-                    </li>
+                      <span className="text-sm text-gray-700 leading-relaxed">{item}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
 
               {/* What to Expect */}
-              <section>
-                <h2 className="text-2xl font-bold text-charcoal mb-4">
-                  What to Expect
-                </h2>
-                <ol className="space-y-3">
+              <section className="bg-white rounded-2xl border border-gray-200 shadow-sm p-7">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-xl bg-purple/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-purple font-bold text-sm">1–{service.whatToExpect.length}</span>
+                  </div>
+                  <h2 className="text-xl font-bold text-charcoal">
+                    What to Expect
+                  </h2>
+                </div>
+                <div className="space-y-3">
                   {service.whatToExpect.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-600">
-                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-teal text-white text-xs font-bold flex items-center justify-center mt-0.5">
+                    <div
+                      key={i}
+                      className="flex items-start gap-4 bg-purple/5 rounded-xl p-4"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-purple text-white text-xs font-bold flex items-center justify-center mt-0.5">
                         {i + 1}
                       </span>
-                      <span className="text-sm leading-relaxed">{item}</span>
-                    </li>
+                      <span className="text-sm text-gray-700 leading-relaxed">{item}</span>
+                    </div>
                   ))}
-                </ol>
+                </div>
               </section>
             </div>
 
@@ -180,35 +199,63 @@ export default function ServicePage({ params }: Props) {
               <h2 className="text-2xl font-bold text-charcoal mb-6">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {service.faqs.map((faq, i) => (
-                  <div
+                  <details
                     key={i}
-                    className="border border-gray-200 rounded-xl p-6 hover:border-teal/30 transition-colors"
+                    className="group border border-gray-200 rounded-xl hover:border-teal/30 transition-colors"
                   >
-                    <h3 className="font-semibold text-charcoal mb-2">
+                    <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-charcoal list-none [&::-webkit-details-marker]:hidden">
                       {faq.question}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
+                      <svg
+                        className="w-5 h-5 text-teal flex-shrink-0 ml-4 transition-transform duration-300 group-open:rotate-180"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </summary>
+                    <div className="px-6 pb-6 pt-0">
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </details>
                 ))}
               </div>
             </section>
 
             {/* CTA */}
-            <section className="bg-purple rounded-2xl geometric-pattern p-10 text-center text-white mb-12">
-              <h2 className="text-2xl sm:text-3xl font-extrabold mb-3">
-                Ready to Get Started?
-              </h2>
-              <p className="text-white/80 mb-6 max-w-md mx-auto">
-                Our team is ready to answer your questions and help you take the
-                first step toward better health.
-              </p>
-              <Link href="/contact" className="btn-teal">
-                Book Your Appointment
-              </Link>
+            <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
+              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                {/* Left: Icon */}
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-sm">
+                    <ArrowRight size={32} className="text-teal" />
+                  </div>
+                </div>
+                {/* Center: Text */}
+                <div className="flex-grow text-center md:text-left">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold mb-2">
+                    Ready to Get Started?
+                  </h2>
+                  <p className="text-white/80 max-w-md">
+                    Our team is ready to answer your questions and help you take the
+                    first step toward better health.
+                  </p>
+                </div>
+                {/* Right: Buttons */}
+                <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
+                  <Link href="/contact" className="btn-teal whitespace-nowrap">
+                    Book Your Appointment
+                  </Link>
+                  <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
+                    New patient info &rarr;
+                  </Link>
+                </div>
+              </div>
             </section>
 
             {/* Related services */}
@@ -217,21 +264,36 @@ export default function ServicePage({ params }: Props) {
                 <h2 className="text-2xl font-bold text-charcoal mb-6">
                   Related Services
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                   {relatedServices.map(
                     (related) =>
                       related && (
                         <Link
                           key={related.slug}
                           href={`/services/${related.slug}`}
-                          className="card p-5 hover:border-teal border border-transparent transition-colors group"
+                          className="group rounded-2xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-md hover:border-teal/40 transition-all"
                         >
-                          <h3 className="font-semibold text-charcoal group-hover:text-teal transition-colors mb-1 text-sm">
-                            {related.name}
-                          </h3>
-                          <span className="inline-flex items-center gap-1 text-teal text-xs font-medium">
-                            Learn more <ArrowRight size={10} />
-                          </span>
+                          <div className="relative h-40 overflow-hidden">
+                            <Image
+                              src={related.image}
+                              alt={related.imageAlt}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              sizes="(max-width: 640px) 100vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 to-transparent" />
+                          </div>
+                          <div className="p-5">
+                            <h3 className="font-bold text-charcoal group-hover:text-teal transition-colors mb-2">
+                              {related.name}
+                            </h3>
+                            <p className="text-gray-500 text-sm mb-3 line-clamp-2">
+                              {related.description}
+                            </p>
+                            <span className="inline-flex items-center gap-1.5 text-teal text-sm font-semibold">
+                              Learn more <ArrowRight size={14} />
+                            </span>
+                          </div>
                         </Link>
                       )
                   )}

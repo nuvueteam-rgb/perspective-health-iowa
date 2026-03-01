@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { SERVICES } from "@/lib/constants";
+import { SERVICES, INSURANCE_PARTNERS } from "@/lib/constants";
 import { CTABanner } from "@/components/home/CTABanner";
 
 export const metadata: Metadata = {
@@ -39,9 +39,10 @@ export default function ServicesPage() {
         <div className="section-container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {SERVICES.map((service, idx) => (
-              <article
+              <Link
                 key={service.slug}
-                className="card group overflow-hidden flex flex-col"
+                href={`/services/${service.slug}`}
+                className="card group overflow-hidden flex flex-col cursor-pointer"
               >
                 {/* Image */}
                 <div className="relative h-52 overflow-hidden">
@@ -64,29 +65,44 @@ export default function ServicesPage() {
                   <p className="text-gray-600 text-sm leading-relaxed flex-grow mb-5">
                     {service.description}
                   </p>
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-2 text-teal font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all"
-                  >
+                  <span className="inline-flex items-center gap-2 text-teal font-semibold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
                     Learn More <ArrowRight size={14} />
-                  </Link>
+                  </span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* Insurance note */}
-      <section className="py-12 bg-sage/40">
+      <section className="py-16 bg-sage/40">
         <div className="section-container text-center">
-          <h2 className="text-2xl font-bold text-charcoal mb-3">
+          <h2 className="text-2xl font-bold text-charcoal mb-2">
             Most Services Covered by Insurance
           </h2>
-          <p className="text-gray-600 max-w-xl mx-auto mb-6">
+          <p className="text-gray-600 max-w-xl mx-auto mb-10">
             We accept most major insurance plans, Medicare, HSA, and FSA. Not
             sure what&apos;s covered for you?
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mb-10">
+            {INSURANCE_PARTNERS.map((partner) => (
+              <div
+                key={partner.name}
+                className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 w-32 h-20 flex items-center justify-center hover:shadow-md transition-shadow"
+              >
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={100}
+                  height={40}
+                  className="object-contain max-h-10"
+                />
+              </div>
+            ))}
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/insurance" className="btn-teal">
               View Insurance Info

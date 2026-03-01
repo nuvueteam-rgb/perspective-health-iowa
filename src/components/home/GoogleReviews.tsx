@@ -127,7 +127,7 @@ export function GoogleReviews() {
                   <GoogleIcon />
                 </div>
                 <StarRating rating={review.rating} />
-                <p className="mt-3 text-gray-600 text-sm leading-relaxed line-clamp-3">
+                <p className="mt-3 text-gray-600 text-sm leading-relaxed">
                   {review.excerpt}
                 </p>
                 <a
@@ -136,7 +136,7 @@ export function GoogleReviews() {
                   rel="noopener noreferrer"
                   className="mt-3 text-teal text-xs font-medium hover:underline"
                 >
-                  Read more
+                  Verified on Google
                 </a>
               </article>
             ))}

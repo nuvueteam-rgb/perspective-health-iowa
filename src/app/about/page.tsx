@@ -6,11 +6,11 @@ import { PROVIDERS } from "@/lib/constants";
 import { CTABanner } from "@/components/home/CTABanner";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "Our Team",
   description:
     "Meet the Perspective Health Iowa team — Audrey Gries PA-C, Stephanie Erdmann DNP, and Tara Sayer RN. Iowa's integrative health clinic built on collaboration, compassion, and root-cause care.",
   openGraph: {
-    title: "About Us | Perspective Health Iowa",
+    title: "Our Team | Perspective Health Iowa",
     description:
       "Meet our integrative health team in Iowa. Whole-person care that truly listens.",
   },
@@ -23,8 +23,8 @@ export default function AboutPage() {
       <section className="bg-charcoal text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 geometric-pattern opacity-30" />
         <div className="section-container relative z-10">
-          <p className="font-script text-3xl text-teal mb-2">Our Story</p>
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">ABOUT US</h1>
+          <p className="font-script text-3xl text-teal mb-2">Who We Are</p>
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">OUR TEAM</h1>
           <p className="text-gray-300 text-lg max-w-xl">
             We built Perspective Health because we believe everyone deserves
             healthcare that sees the whole person.
@@ -145,7 +145,7 @@ export default function AboutPage() {
               <article
                 key={provider.id}
                 id={provider.id}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+                className={`scroll-mt-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
                   idx % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
