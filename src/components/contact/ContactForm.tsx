@@ -83,8 +83,8 @@ export function ContactForm() {
             <li className="flex items-start gap-2">
               <span className="text-teal mt-0.5">✓</span>
               If your matter is urgent, please call us directly at{" "}
-              <a href="tel:+17125550100" className="text-teal font-medium hover:underline">
-                (712) 555-0100
+              <a href="tel:+15157240377" className="text-teal font-medium hover:underline">
+                (515) 724-0377
               </a>
               .
             </li>
@@ -161,7 +161,7 @@ export function ContactForm() {
             {...register("phone")}
             id="phone"
             type="tel"
-            placeholder="(712) 555-0100"
+            placeholder="(515) 724-0377"
             autoComplete="tel"
             className={cn(
               "w-full px-4 py-3 rounded-xl border text-charcoal placeholder-gray-400 bg-white",
@@ -210,25 +210,26 @@ export function ContactForm() {
         <p className="block text-sm font-semibold text-charcoal mb-2">
           Preferred Contact Method <span className="text-red-500">*</span>
         </p>
-        <div className="flex flex-wrap gap-3">
+        <div className="grid grid-cols-3 gap-3">
           {[
-            { value: "email", label: "Email" },
-            { value: "phone", label: "Phone" },
-            { value: "either", label: "Either" },
+            { value: "email", label: "Email", icon: "✉️" },
+            { value: "phone", label: "Phone", icon: "📞" },
+            { value: "either", label: "Either", icon: "👍" },
           ].map((option) => (
             <label
               key={option.value}
-              className="flex items-center gap-2 cursor-pointer group"
+              className="relative cursor-pointer"
             >
               <input
                 {...register("preferredContact")}
                 type="radio"
                 value={option.value}
-                className="w-4 h-4 accent-teal"
+                className="peer sr-only"
               />
-              <span className="text-sm text-charcoal group-hover:text-teal transition-colors">
-                {option.label}
-              </span>
+              <div className="flex flex-col items-center gap-1.5 rounded-xl border border-gray-200 p-3 text-center transition-all peer-checked:border-teal peer-checked:bg-teal/5 peer-checked:shadow-sm hover:border-teal/40">
+                <span className="text-lg">{option.icon}</span>
+                <span className="text-sm font-medium text-charcoal">{option.label}</span>
+              </div>
             </label>
           ))}
         </div>
@@ -270,13 +271,20 @@ export function ContactForm() {
           <p>
             We encountered an error sending your message. Please try again or
             call us directly at{" "}
-            <a href="tel:+17125550100" className="font-medium underline">
-              (712) 555-0100
+            <a href="tel:+15157240377" className="font-medium underline">
+              (515) 724-0377
             </a>
             .
           </p>
         </div>
       )}
+
+      {/* Trust signal */}
+      <div className="flex items-center justify-center gap-3 text-gray-400 text-xs">
+        <span>🔒 HIPAA Compliant</span>
+        <span className="w-1 h-1 rounded-full bg-gray-300" />
+        <span>Your info is never shared</span>
+      </div>
 
       {/* Submit */}
       <button

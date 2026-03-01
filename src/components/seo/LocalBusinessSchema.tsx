@@ -23,9 +23,9 @@ export function LocalBusinessSchema() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      // Approximate coordinates for Council Bluffs, IA — update with exact coords
-      latitude: 41.2619,
-      longitude: -95.8608,
+      // Coordinates for Urbandale, IA (8860 Northpark Dr)
+      latitude: 41.6328,
+      longitude: -93.7614,
     },
     openingHoursSpecification: [
       {
