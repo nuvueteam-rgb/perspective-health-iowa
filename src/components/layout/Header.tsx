@@ -79,7 +79,7 @@ export function Header() {
           isHomepage ? "fixed top-0 left-0 right-0" : "sticky top-0",
           isTransparent
             ? "bg-transparent"
-            : "bg-white/95 backdrop-blur-sm shadow-md"
+            : "bg-charcoal/95 backdrop-blur-sm shadow-lg"
         )}
       >
         <div className="section-container">
@@ -92,20 +92,10 @@ export function Header() {
             >
               <PinwheelLogo className="w-12 h-12" />
               <div className="hidden sm:block">
-                <span
-                  className={cn(
-                    "block font-bold text-lg leading-tight transition-colors duration-300",
-                    isTransparent ? "text-white" : "text-charcoal"
-                  )}
-                >
+                <span className="block font-bold text-lg leading-tight text-white">
                   Perspective Health
                 </span>
-                <span
-                  className={cn(
-                    "block text-sm font-medium transition-colors duration-300",
-                    isTransparent ? "text-white/80" : "text-teal"
-                  )}
-                >
+                <span className="block text-sm font-medium text-teal">
                   Iowa
                 </span>
               </div>
@@ -128,15 +118,9 @@ export function Header() {
                       }
                       className={cn(
                         "flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-300",
-                        isTransparent
-                          ? "text-white/90 hover:text-white"
-                          : cn(
-                              "nav-link",
-                              pathname.startsWith(link.href) &&
-                                link.href !== "/"
-                                ? "text-teal"
-                                : "text-charcoal"
-                            )
+                        pathname.startsWith(link.href) && link.href !== "/"
+                          ? "text-teal"
+                          : "text-white/90 hover:text-white"
                       )}
                       aria-expanded={activeDropdown === link.href}
                       aria-haspopup="true"
@@ -155,16 +139,10 @@ export function Header() {
                       href={link.href}
                       className={cn(
                         "px-3 py-2 rounded-lg text-sm block font-medium transition-colors duration-300",
-                        isTransparent
-                          ? "text-white/90 hover:text-white"
-                          : cn(
-                              "nav-link",
-                              pathname === link.href ||
-                                (link.href !== "/" &&
-                                  pathname.startsWith(link.href))
-                                ? "text-teal"
-                                : "text-charcoal"
-                            )
+                        pathname === link.href ||
+                          (link.href !== "/" && pathname.startsWith(link.href))
+                          ? "text-teal"
+                          : "text-white/90 hover:text-white"
                       )}
                     >
                       {link.label}
@@ -197,19 +175,14 @@ export function Header() {
                   "hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300",
                   isTransparent
                     ? "border-2 border-white text-white hover:bg-white hover:text-purple"
-                    : "text-white bg-purple hover:bg-purple-600 shadow-md hover:shadow-lg"
+                    : "text-white bg-teal hover:bg-teal-600 shadow-md hover:shadow-lg"
                 )}
               >
                 Start Your Health Journey
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={cn(
-                  "lg:hidden p-2 rounded-lg transition-colors duration-300",
-                  isTransparent
-                    ? "text-white hover:bg-white/10"
-                    : "text-charcoal hover:bg-gray-100"
-                )}
+                className="lg:hidden p-2 rounded-lg transition-colors duration-300 text-white hover:bg-white/10"
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
               >
@@ -221,7 +194,7 @@ export function Header() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-100 bg-white">
+          <div className="lg:hidden border-t border-white/10 bg-charcoal">
             <nav
               className="section-container py-4 space-y-1"
               aria-label="Mobile navigation"
@@ -235,7 +208,7 @@ export function Header() {
                       pathname === link.href ||
                         (link.href !== "/" && pathname.startsWith(link.href))
                         ? "bg-teal/10 text-teal"
-                        : "text-charcoal hover:bg-gray-50"
+                        : "text-white/90 hover:bg-white/10"
                     )}
                   >
                     {link.label}
@@ -246,7 +219,7 @@ export function Header() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-4 py-2 text-sm text-gray-600 hover:text-teal rounded-lg hover:bg-gray-50 transition-colors"
+                          className="block px-4 py-2 text-sm text-white/60 hover:text-teal rounded-lg hover:bg-white/10 transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -255,10 +228,10 @@ export function Header() {
                   )}
                 </div>
               ))}
-              <div className="pt-3 border-t border-gray-100">
+              <div className="pt-3 border-t border-white/10">
                 <Link
                   href="/contact"
-                  className="btn-primary w-full justify-center text-sm"
+                  className="btn-teal w-full justify-center text-sm"
                 >
                   Start Your Health Journey
                 </Link>
