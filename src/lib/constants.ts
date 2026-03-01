@@ -166,7 +166,14 @@ export const NAVIGATION_LINKS = [
     })),
   },
   { label: "Our Team", href: "/about" },
-  { label: "For Our Patients", href: "/for-patients" },
+  {
+    label: "For Our Patients",
+    href: "/for-patients",
+    children: [
+      { label: "New Patients", href: "/for-patients" },
+      { label: "Patient Portal", href: "#" }, // TODO: Replace "#" with real patient portal URL
+    ],
+  },
   { label: "Insurance", href: "/insurance" },
   { label: "Blog", href: "/blog" },
   { label: "Contact Us", href: "/contact" },

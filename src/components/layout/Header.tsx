@@ -143,15 +143,27 @@ export function Header() {
                   {/* Dropdown menu */}
                   {link.children && activeDropdown === link.href && (
                     <div className="absolute top-full left-0 mt-1 w-72 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50 animate-fade-in">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-4 py-2.5 text-sm text-charcoal hover:bg-sage hover:text-teal transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      {link.children.map((child) =>
+                        child.href === "#" || child.href.startsWith("http") ? (
+                          <a
+                            key={child.label}
+                            href={child.href}
+                            target={child.href.startsWith("http") ? "_blank" : undefined}
+                            rel={child.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                            className="block px-4 py-2.5 text-sm text-purple font-medium hover:bg-purple/5 hover:text-purple-700 transition-colors border-t border-gray-100"
+                          >
+                            {child.label} &rarr;
+                          </a>
+                        ) : (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block px-4 py-2.5 text-sm text-charcoal hover:bg-sage hover:text-teal transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        )
+                      )}
                     </div>
                   )}
                 </div>

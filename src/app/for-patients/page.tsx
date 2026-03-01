@@ -6,13 +6,13 @@ import { CTABanner } from "@/components/home/CTABanner";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "For Our Patients",
+  title: "Welcome, New Patients",
   description:
-    "New and existing patient resources at Perspective Health Iowa — FAQs, what to expect, how to prepare for your visit, and patient forms.",
+    "Everything new patients need to know about their first visit at Perspective Health Iowa — what to expect, how to prepare, and FAQs.",
   openGraph: {
-    title: "For Our Patients | Perspective Health Iowa",
+    title: "Welcome, New Patients | Perspective Health Iowa",
     description:
-      "Patient resources, FAQs, and what to expect at Perspective Health Iowa.",
+      "Your guide to getting started at Perspective Health Iowa. Learn what to expect at your first visit.",
   },
 };
 
@@ -75,16 +75,16 @@ export default function ForPatientsPage() {
       <FAQSchema faqs={faqs} />
 
       {/* Hero */}
-      <section className="bg-charcoal text-white py-20 relative overflow-hidden">
+      <section className="bg-charcoal text-white py-20 pt-32 relative overflow-hidden">
         <div className="absolute inset-0 geometric-pattern opacity-30" />
         <div className="section-container relative z-10">
-          <p className="font-script text-3xl text-teal mb-2">We&apos;re Here for You</p>
+          <p className="font-script text-3xl text-teal mb-2">We&apos;re Glad You&apos;re Here</p>
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-            FOR OUR PATIENTS
+            WELCOME, NEW PATIENTS
           </h1>
           <p className="text-gray-300 text-lg max-w-xl">
-            Everything you need to know before, during, and after your visit at
-            Perspective Health Iowa.
+            We&apos;re excited to meet you. Here&apos;s everything you need to know
+            to prepare for your first visit and start your health journey with us.
           </p>
         </div>
       </section>
