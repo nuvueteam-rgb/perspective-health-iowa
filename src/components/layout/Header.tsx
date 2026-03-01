@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, X, Phone } from "lucide-react";
-import { NAVIGATION_LINKS, SITE_CONFIG, SERVICES } from "@/lib/constants";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { NAVIGATION_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { PinwheelLogo } from "@/components/ui/PinwheelLogo";
 
@@ -14,9 +14,24 @@ export function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const isHomepage = pathname === "/";
-  const isTransparent = isHomepage && !isScrolled && !mobileMenuOpen;
+  const isTransparent = !isScrolled && !mobileMenuOpen;
+
+  const handleDropdownEnter = useCallback((href: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setActiveDropdown(href);
+  }, []);
+
+  const handleDropdownLeave = useCallback(() => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+      closeTimeoutRef.current = null;
+    }, 200);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -44,39 +59,10 @@ export function Header() {
 
   return (
     <>
-      {/* Top utility bar — only on non-homepage pages */}
-      {!isHomepage && (
-        <div className="bg-charcoal text-white text-sm py-2 hidden md:block">
-          <div className="section-container flex justify-between items-center">
-            <div className="flex items-center gap-1 text-gray-300">
-              {SERVICES.map((service, i) => (
-                <span key={service.slug} className="flex items-center">
-                  {i > 0 && <span className="mx-1.5">&bull;</span>}
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="hover:text-teal transition-colors"
-                  >
-                    {service.shortName}
-                  </Link>
-                </span>
-              ))}
-            </div>
-            <a
-              href={`tel:${SITE_CONFIG.phoneRaw}`}
-              className="flex items-center gap-2 text-teal hover:text-teal-300 transition-colors font-medium"
-            >
-              <Phone size={14} />
-              {SITE_CONFIG.phone}
-            </a>
-          </div>
-        </div>
-      )}
-
       {/* Main header */}
       <header
         className={cn(
-          "z-50 transition-all duration-300",
-          isHomepage ? "fixed top-0 left-0 right-0" : "sticky top-0",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isTransparent
             ? "bg-transparent"
             : "bg-charcoal/95 backdrop-blur-sm shadow-lg"
@@ -108,7 +94,12 @@ export function Header() {
               aria-label="Main navigation"
             >
               {NAVIGATION_LINKS.map((link) => (
-                <div key={link.href} className="relative">
+                <div
+                  key={link.href}
+                  className="relative"
+                  onMouseEnter={link.children ? () => handleDropdownEnter(link.href) : undefined}
+                  onMouseLeave={link.children ? handleDropdownLeave : undefined}
+                >
                   {link.children ? (
                     <button
                       onClick={() =>
