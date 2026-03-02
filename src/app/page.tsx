@@ -27,8 +27,8 @@ export default function HomePage() {
       <LocalBusinessSchema />
       <HeroSection />
       <WelcomeSection />
-      <OurApproach />
       <ServicesSection />
+      <OurApproach />
       <ProvidersSection />
       <GoogleReviews />
       <InsurancePartners />
