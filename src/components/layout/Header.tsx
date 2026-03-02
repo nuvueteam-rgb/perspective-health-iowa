@@ -108,10 +108,10 @@ export function Header() {
                         )
                       }
                       className={cn(
-                        "flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-300",
+                        "flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:underline underline-offset-4",
                         pathname.startsWith(link.href) && link.href !== "/"
                           ? "text-teal"
-                          : "text-white/90 hover:text-white"
+                          : "text-white/90 hover:text-teal"
                       )}
                       aria-expanded={activeDropdown === link.href}
                       aria-haspopup="true"
@@ -129,11 +129,11 @@ export function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "px-3 py-2 rounded-lg text-sm block font-medium transition-colors duration-300",
+                        "px-3 py-2 rounded-lg text-sm block font-medium transition-all duration-300 hover:underline underline-offset-4",
                         pathname === link.href ||
                           (link.href !== "/" && pathname.startsWith(link.href))
                           ? "text-teal"
-                          : "text-white/90 hover:text-white"
+                          : "text-white/90 hover:text-teal"
                       )}
                     >
                       {link.label}
