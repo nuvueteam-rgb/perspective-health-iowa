@@ -13,6 +13,7 @@ export interface ServiceData {
   faqs: { question: string; answer: string }[];
   relatedServices: string[];
   gallery?: { src: string; alt: string }[];
+  accordionSections?: { title: string; items: string[] }[];
 }
 
 export const servicesData: ServiceData[] = [
@@ -77,6 +78,58 @@ export const servicesData: ServiceData[] = [
       "hormone-health",
       "integrative-functional-medicine",
       "digestive-metabolic-health",
+    ],
+    accordionSections: [
+      {
+        title: "Wellness Care",
+        items: [
+          "Annual wellness exams and preventive screenings",
+          "Personalized health optimization plans",
+          "Immunizations and routine health maintenance",
+          "Lifestyle counseling for nutrition, exercise, and stress management",
+          "Age-appropriate cancer and disease screenings",
+        ],
+      },
+      {
+        title: "Chronic Care",
+        items: [
+          "Hypertension and cardiovascular risk management",
+          "Type 2 diabetes and prediabetes management",
+          "Thyroid disorders and autoimmune conditions",
+          "Asthma, COPD, and respiratory conditions",
+          "Ongoing monitoring, medication management, and care plan adjustments",
+        ],
+      },
+      {
+        title: "Acute Care",
+        items: [
+          "Same-day or next-day sick visits when available",
+          "Upper respiratory infections, sinus infections, and flu",
+          "Urinary tract infections and minor skin conditions",
+          "Minor injuries, sprains, and strains",
+          "Referrals and coordination for urgent or emergency needs",
+        ],
+      },
+      {
+        title: "Functional \"Root Cause\" Lab Testing",
+        items: [
+          "Comprehensive metabolic and inflammatory marker panels",
+          "Advanced thyroid testing (Free T3, Free T4, Reverse T3, antibodies)",
+          "Hormone panels including sex hormones, adrenal markers, and insulin",
+          "Micronutrient and vitamin deficiency assessments",
+          "Gut health and food sensitivity testing",
+        ],
+      },
+      {
+        title: "Medication and Supplement Consultation",
+        items: [
+          "Comprehensive medication review and optimization",
+          "Evidence-based supplement recommendations tailored to your labs",
+          "Drug-supplement interaction screening",
+          "Deprescribing strategies to reduce unnecessary medications",
+          "Personalized protocols integrating conventional and natural approaches",
+        ],
+      },
     ],
   },
   {
@@ -201,6 +254,58 @@ export const servicesData: ServiceData[] = [
       "comprehensive-primary-care",
       "hormone-health",
       "digestive-metabolic-health",
+    ],
+    accordionSections: [
+      {
+        title: "Functional Medicine",
+        items: [
+          "Finding and addressing the root cause(s) of a patient's health problems",
+          "Advanced diagnostic testing to uncover hidden imbalances",
+          "Personalized treatment protocols based on your unique biology",
+          "Focus on addressing triggers and promoting health rather than treating symptoms alone",
+          "Tools that are safe with minimum side effects",
+        ],
+      },
+      {
+        title: "Integrative Medicine",
+        items: [
+          "Collaborative practice combining traditional and complementary therapies",
+          "Treating and healing the whole person — body, mind, and lifestyle",
+          "Evidence-based conventional care paired with proven natural approaches",
+          "Nutrition therapy, targeted supplementation, and mind-body practices",
+          "Making each person's care collaborative and comprehensive",
+        ],
+      },
+      {
+        title: "Advanced Lab Testing",
+        items: [
+          "Comprehensive metabolic and inflammatory marker panels",
+          "Gut microbiome analysis and intestinal permeability testing",
+          "Nutrient status and vitamin deficiency assessments",
+          "Hormone and adrenal function testing",
+          "Toxin load and environmental exposure screening",
+        ],
+      },
+      {
+        title: "Lifestyle Medicine",
+        items: [
+          "Personalized nutrition plans and dietary therapy",
+          "Stress management and adrenal support strategies",
+          "Sleep optimization protocols",
+          "Movement and exercise guidance tailored to your condition",
+          "Mind-body techniques for whole-person healing",
+        ],
+      },
+      {
+        title: "Supplement and Nutrition Protocols",
+        items: [
+          "Evidence-based supplement recommendations tailored to your labs",
+          "Targeted protocols for specific conditions and deficiencies",
+          "Drug-supplement interaction screening",
+          "Elimination diet guidance and food sensitivity support",
+          "Ongoing adjustments based on progress and retesting",
+        ],
+      },
     ],
   },
   {
