@@ -25,7 +25,7 @@ export function ServicesSection() {
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="service-card group block h-72 sm:h-80"
+              className="service-card group block h-48 sm:h-56"
             >
               {/* Image */}
               <Image
