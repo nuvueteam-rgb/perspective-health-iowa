@@ -53,19 +53,21 @@ export default function ServicePage({ params }: Props) {
       <FAQSchema faqs={service.faqs} />
 
       {/* Hero */}
-      <section className="relative h-80 sm:h-96 overflow-hidden bg-charcoal">
-        <Image
-          src={service.heroImage}
-          alt={service.heroImageAlt}
-          fill
-          priority
-          quality={85}
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
+      <section className="relative min-h-[60vh] flex flex-col justify-end overflow-hidden bg-charcoal">
+        <div className="absolute inset-0">
+          <Image
+            src={service.heroImage}
+            alt={service.heroImageAlt}
+            fill
+            priority
+            quality={90}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
+        </div>
         {/* Breadcrumb */}
-        <div className="absolute top-24 left-0 right-0">
+        <div className="absolute top-24 left-0 right-0 z-10">
           <nav
             aria-label="Breadcrumb"
             className="section-container text-sm text-white/70"
@@ -88,7 +90,7 @@ export default function ServicePage({ params }: Props) {
           </nav>
         </div>
         {/* Heading */}
-        <div className="absolute bottom-0 left-0 right-0 section-container pb-10">
+        <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white max-w-2xl leading-tight">
             {service.headline}
           </h1>

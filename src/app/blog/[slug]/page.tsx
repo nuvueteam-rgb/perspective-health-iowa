@@ -64,19 +64,22 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       {/* Hero */}
-      <section className="relative h-64 sm:h-80 overflow-hidden bg-charcoal">
-        <Image
-          src={post.frontmatter.ogImage || "/images/blog-default.jpg"}
-          alt={post.frontmatter.title}
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/70" />
+      <section className="relative min-h-[60vh] flex flex-col justify-end overflow-hidden bg-charcoal">
+        <div className="absolute inset-0">
+          <Image
+            src={post.frontmatter.ogImage || "/images/blog-default.jpg"}
+            alt={post.frontmatter.title}
+            fill
+            priority
+            quality={90}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
+        </div>
 
         {/* Breadcrumb */}
-        <div className="absolute top-24 left-0 right-0">
+        <div className="absolute top-24 left-0 right-0 z-10">
           <nav aria-label="Breadcrumb" className="section-container text-sm text-white/70">
             <ol className="flex items-center gap-1.5">
               <li>
@@ -94,7 +97,7 @@ export default async function BlogPostPage({ params }: Props) {
           </nav>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 section-container pb-8">
+        <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
           <span className="inline-block bg-teal text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
             {post.frontmatter.category}
           </span>

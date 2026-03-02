@@ -19,18 +19,18 @@ export function HeroSection() {
       </div>
 
       {/* Hero text */}
-      <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24 pt-32">
-        {/* "Be Seen." — script text sitting above highlight blocks with slight overlap */}
-        <p className="font-script text-[8rem] sm:text-[12rem] lg:text-[16rem] text-white -rotate-2 tracking-tight font-light ml-1 sm:ml-2 relative z-10 leading-[0.7] mb-[-0.5rem] sm:mb-[-1rem] lg:mb-[-1.5rem]">
+      <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
+        {/* "Be Seen." */}
+        <p className="font-script text-7xl sm:text-8xl lg:text-9xl text-white -rotate-2 font-light mb-2 sm:mb-3 ml-1">
           Be Seen.
         </p>
 
         {/* Highlighted headline blocks */}
-        <h1 className="flex flex-col items-start gap-2.5 sm:gap-3 relative z-0">
-          <span className="inline-block bg-teal/90 px-4 py-3 sm:px-6 sm:py-4 text-white text-lg sm:text-2xl lg:text-3xl xl:text-4xl font-normal tracking-wide uppercase">
+        <h1 className="flex flex-col items-start gap-2 sm:gap-3">
+          <span className="inline-block bg-teal/90 px-4 py-2.5 sm:px-6 sm:py-3 text-white text-xl sm:text-2xl lg:text-3xl font-normal tracking-wide uppercase">
             Experience Healthcare
           </span>
-          <span className="inline-block bg-purple/90 px-4 py-3 sm:px-6 sm:py-4 text-white text-lg sm:text-2xl lg:text-3xl xl:text-4xl font-normal tracking-wide uppercase">
+          <span className="inline-block bg-purple/90 px-4 py-2.5 sm:px-6 sm:py-3 text-white text-xl sm:text-2xl lg:text-3xl font-normal tracking-wide uppercase">
             From a New Perspective
           </span>
         </h1>

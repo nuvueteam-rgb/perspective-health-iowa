@@ -23,16 +23,29 @@ export default async function BlogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-charcoal text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 geometric-pattern opacity-30" />
-        <div className="section-container relative z-10">
-          <p className="font-script text-3xl text-teal mb-2">
+      <section className="relative min-h-[60vh] flex flex-col justify-end overflow-hidden bg-charcoal">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-blog.jpg"
+            alt="Health education and wellness insights from Perspective Health Iowa"
+            fill
+            priority
+            quality={90}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
+        </div>
+        <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
+          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white -rotate-2 font-light mb-2 sm:mb-3 ml-1">
             Insights & Education
           </p>
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-            OUR BLOG
+          <h1 className="flex flex-col items-start gap-2 sm:gap-3">
+            <span className="inline-block bg-teal/90 px-4 py-2.5 sm:px-6 sm:py-3 text-white text-xl sm:text-2xl lg:text-3xl font-normal tracking-wide uppercase">
+              Our Blog
+            </span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-xl">
+          <p className="text-white/80 text-lg max-w-xl mt-4">
             Evidence-based insights on integrative health, hormone balance,
             functional medicine, and whole-person wellness.
           </p>
