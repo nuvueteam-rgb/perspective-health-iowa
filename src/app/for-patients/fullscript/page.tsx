@@ -70,7 +70,7 @@ export default function FullscriptPage() {
             </div>
 
             {/* Right — Fullscript card */}
-            <div className="bg-gradient-to-br from-teal to-teal/80 rounded-2xl p-8 sm:p-10 text-white shadow-lg">
+            <div className="bg-green-accent geometric-pattern rounded-2xl p-8 sm:p-10 text-white shadow-lg">
               <div className="bg-white rounded-xl p-4 inline-block mb-6">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

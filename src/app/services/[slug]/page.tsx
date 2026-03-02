@@ -1206,7 +1206,7 @@ export default function ServicePage({ params }: Props) {
                     Effective supplementation goes beyond powders or pills. As a Perspective Health patient, we want to equip you with trusted products and tools you need to succeed in your supplement routine &mdash; all in a convenient online and mobile app experience.
                   </p>
                 </div>
-                <div className="bg-gradient-to-br from-teal to-teal/80 rounded-2xl p-10 text-center text-white shadow-lg">
+                <div className="bg-green-accent geometric-pattern rounded-2xl p-10 text-center text-white shadow-lg">
                   <p className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight mb-4">
                     Order Healthcare&apos;s Best Supplements &mdash; Delivered to Your Door.
                   </p>

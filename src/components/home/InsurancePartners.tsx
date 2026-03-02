@@ -4,6 +4,7 @@ import { INSURANCE_PARTNERS } from "@/lib/constants";
 
 export function InsurancePartners() {
   return (
+    <>
     <section className="section-padding bg-sage/30">
       <div className="section-container">
         <div className="text-center mb-10">
@@ -59,26 +60,33 @@ export function InsurancePartners() {
           — we&apos;re happy to verify your benefits.
         </p>
 
-        {/* CareCredit section */}
-        <div className="mt-12 bg-white rounded-2xl p-8 sm:p-10 shadow-sm border border-gray-100 text-center">
-          <h3 className="text-2xl font-bold text-charcoal mb-3">
-            Flexible Financing with{" "}
-            <span className="text-teal">CareCredit</span>
-          </h3>
-          <p className="text-gray-600 max-w-xl mx-auto mb-6">
-            We proudly accept CareCredit to help make your healthcare more
-            affordable. Apply today and get the care you need, when you need it.
-          </p>
+      </div>
+    </section>
+
+    {/* CareCredit section */}
+    <section className="bg-green-accent geometric-pattern py-14 sm:py-16">
+      <div className="section-container">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
+          <div className="flex-grow">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-wide mb-4">
+              Flexible Financing with CareCredit
+            </h3>
+            <p className="text-white/80 max-w-2xl">
+              We proudly accept CareCredit to help make your healthcare more
+              affordable. Apply today and get the care you need, when you need it.
+            </p>
+          </div>
           <a
             href="https://www.carecredit.com/go/344RFJ/"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-teal inline-flex"
+            className="btn-primary whitespace-nowrap flex-shrink-0"
           >
             Apply with CareCredit
           </a>
         </div>
       </div>
     </section>
+    </>
   );
 }
