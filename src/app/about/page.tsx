@@ -96,13 +96,13 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="section-padding bg-sage/40 geometric-pattern-light">
+      <section className="section-padding bg-teal geometric-pattern">
         <div className="section-container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-charcoal">
-              OUR <span className="text-teal">VALUES</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+              OUR <span className="text-white">VALUES</span>
             </h2>
-            <div className="w-16 h-1 bg-teal rounded-full mx-auto mt-4" />
+            <div className="w-16 h-1 bg-white rounded-full mx-auto mt-4" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
