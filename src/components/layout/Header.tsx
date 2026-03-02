@@ -218,15 +218,27 @@ export function Header() {
                   </Link>
                   {link.children && (
                     <div className="ml-4 mt-1 space-y-1">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-4 py-2 text-sm text-white/60 hover:text-teal rounded-lg hover:bg-white/10 transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      {link.children.map((child) =>
+                        child.href.startsWith("http") ? (
+                          <a
+                            key={child.href}
+                            href={child.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block px-4 py-2 text-sm text-white/60 hover:text-teal rounded-lg hover:bg-white/10 transition-colors"
+                          >
+                            {child.label}
+                          </a>
+                        ) : (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block px-4 py-2 text-sm text-white/60 hover:text-teal rounded-lg hover:bg-white/10 transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        )
+                      )}
                     </div>
                   )}
                 </div>

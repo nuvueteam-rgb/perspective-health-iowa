@@ -171,7 +171,7 @@ export const NAVIGATION_LINKS = [
     href: "/for-patients",
     children: [
       { label: "New Patients", href: "/for-patients" },
-      { label: "Patient Portal", href: "#" }, // TODO: Replace "#" with real patient portal URL
+      { label: "Elation Passport Portal", href: "https://app.elationpassport.com/passport/login/" },
     ],
   },
   { label: "Insurance", href: "/insurance" },
