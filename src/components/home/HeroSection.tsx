@@ -20,17 +20,17 @@ export function HeroSection() {
 
       {/* Hero text */}
       <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24 pt-32">
-        {/* "Be Seen." — large handwritten headline floating above blocks */}
-        <p className="font-script text-8xl sm:text-9xl lg:text-[10rem] text-white -rotate-2 tracking-tight font-light mb-[-0.15em] ml-1 sm:ml-2 relative z-10 drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)] [text-shadow:_0_2px_12px_rgba(255,255,255,0.2),_0_4px_20px_rgba(0,0,0,0.3)]">
+        {/* "Be Seen." — dominant handwritten headline floating above blocks */}
+        <p className="font-script text-[8rem] sm:text-[12rem] lg:text-[16rem] text-white -rotate-2 tracking-tight font-light mb-[-0.12em] ml-1 sm:ml-2 relative z-10 leading-[0.75] [text-shadow:_0_2px_16px_rgba(255,255,255,0.15),_0_4px_24px_rgba(0,0,0,0.3)]">
           Be Seen.
         </p>
 
         {/* Highlighted headline blocks */}
-        <h1 className="flex flex-col items-start gap-1.5 sm:gap-2 relative z-0">
-          <span className="inline-block bg-teal/90 px-3 py-1.5 sm:px-5 sm:py-2 text-white text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-normal tracking-wide uppercase">
+        <h1 className="flex flex-col items-start gap-2.5 sm:gap-3 relative z-0">
+          <span className="inline-block bg-teal/90 px-4 py-3 sm:px-6 sm:py-4 text-white text-lg sm:text-2xl lg:text-3xl xl:text-4xl font-normal tracking-wide uppercase">
             Experience Healthcare
           </span>
-          <span className="inline-block bg-purple/90 px-3 py-1.5 sm:px-5 sm:py-2 text-white text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-normal tracking-wide uppercase">
+          <span className="inline-block bg-purple/90 px-4 py-3 sm:px-6 sm:py-4 text-white text-lg sm:text-2xl lg:text-3xl xl:text-4xl font-normal tracking-wide uppercase">
             From a New Perspective
           </span>
         </h1>
