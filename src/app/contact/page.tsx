@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { SITE_CONFIG } from "@/lib/constants";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -58,13 +59,15 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* Main content */}
       <section className="section-padding bg-white">
         <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,640px)_1fr] gap-12 lg:gap-14">
             {/* Left: Contact form (shown first) */}
-            <div id="contact-form" className="lg:col-span-2 lg:order-1 scroll-mt-24">
-              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 sm:p-10">
+            <div id="contact-form" className="lg:order-1 scroll-mt-24">
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-8">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
                   <div>
                     <h2 className="text-xl font-bold text-charcoal mb-1">
@@ -200,6 +203,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* Visit us CTA */}
       <section className="relative h-96 overflow-hidden" aria-label="Office location">

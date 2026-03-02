@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CheckCircle, Phone, ArrowRight } from "lucide-react";
 import { INSURANCE_PARTNERS, SITE_CONFIG } from "@/lib/constants";
 import { CTABanner } from "@/components/home/CTABanner";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export const metadata: Metadata = {
   title: "Insurance & Pricing",
@@ -48,6 +49,8 @@ export default function InsurancePage() {
           </p>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* Insurance partners */}
       <section className="section-padding bg-white">
@@ -118,6 +121,8 @@ export default function InsurancePage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* HSA / FSA */}
       <section className="section-padding bg-sage/40">
         <div className="section-container">
@@ -172,6 +177,8 @@ export default function InsurancePage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* Self-pay / Pricing */}
       <section className="section-padding bg-white">
         <div className="section-container max-w-4xl">
@@ -216,7 +223,7 @@ export default function InsurancePage() {
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="btn-teal">
+            <Link href="/contact#contact-form" className="btn-teal">
               Get Pricing Info
             </Link>
             <Link href="/for-patients" className="btn-outline-teal inline-flex items-center gap-2">

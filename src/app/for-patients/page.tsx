@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ChevronDown, ArrowRight, FileText, Phone } from "lucide-react";
 import { FAQSchema } from "@/components/seo/FAQSchema";
 import { CTABanner } from "@/components/home/CTABanner";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -105,6 +106,8 @@ export default function ForPatientsPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* New patient steps */}
       <section className="section-padding bg-white">
         <div className="section-container">
@@ -155,12 +158,14 @@ export default function ForPatientsPage() {
           </div>
 
           <div className="text-center mt-10">
-            <Link href="/contact" className="btn-primary">
+            <Link href="/contact#contact-form" className="btn-primary">
               Schedule Your First Visit
             </Link>
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* What to bring */}
       <section className="section-padding bg-sage/40">
@@ -198,6 +203,8 @@ export default function ForPatientsPage() {
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* FAQ */}
       <section className="section-padding bg-white">
@@ -250,7 +257,7 @@ export default function ForPatientsPage() {
               >
                 Call Us
               </a>
-              <Link href="/contact" className="btn-outline-teal text-sm inline-flex items-center gap-2">
+              <Link href="/contact#contact-form" className="btn-outline-teal text-sm inline-flex items-center gap-2">
                 Message Us <ArrowRight size={14} />
               </Link>
             </div>

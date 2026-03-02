@@ -53,7 +53,7 @@ export function InsurancePartners() {
 
         <p className="text-center text-gray-500 text-sm mt-6">
           Not sure if we accept your insurance?{" "}
-          <Link href="/contact" className="text-teal font-medium hover:underline">
+          <Link href="/contact#contact-form" className="text-teal font-medium hover:underline">
             Contact us
           </Link>{" "}
           — we&apos;re happy to verify your benefits.

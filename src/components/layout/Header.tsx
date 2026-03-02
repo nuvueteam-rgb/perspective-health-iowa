@@ -173,7 +173,7 @@ export function Header() {
             {/* CTA + Mobile toggle */}
             <div className="flex items-center gap-3">
               <Link
-                href="/contact"
+                href="/contact#contact-form"
                 className={cn(
                   "hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300",
                   isTransparent
@@ -245,7 +245,7 @@ export function Header() {
               ))}
               <div className="pt-3 border-t border-white/10">
                 <Link
-                  href="/contact"
+                  href="/contact#contact-form"
                   className="btn-teal w-full justify-center text-sm"
                 >
                   Start Your Health Journey

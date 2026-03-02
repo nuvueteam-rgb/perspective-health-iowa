@@ -101,7 +101,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
       {/* Name */}
       <div>
         <label htmlFor="name" className="block text-sm font-semibold text-charcoal mb-1.5">
@@ -114,7 +114,7 @@ export function ContactForm() {
           placeholder="Jane Smith"
           autoComplete="name"
           className={cn(
-            "w-full px-4 py-3 rounded-xl border text-charcoal placeholder-gray-400 bg-white",
+            "w-full px-3.5 py-2.5 rounded-lg border text-sm text-charcoal placeholder-gray-400 bg-white",
             "focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent",
             "transition-all duration-200",
             errors.name ? "border-red-400 bg-red-50" : "border-gray-200"
@@ -140,7 +140,7 @@ export function ContactForm() {
             placeholder="jane@example.com"
             autoComplete="email"
             className={cn(
-              "w-full px-4 py-3 rounded-xl border text-charcoal placeholder-gray-400 bg-white",
+              "w-full px-3.5 py-2.5 rounded-lg border text-sm text-charcoal placeholder-gray-400 bg-white",
               "focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent",
               "transition-all duration-200",
               errors.email ? "border-red-400 bg-red-50" : "border-gray-200"
@@ -164,7 +164,7 @@ export function ContactForm() {
             placeholder="(515) 724-0377"
             autoComplete="tel"
             className={cn(
-              "w-full px-4 py-3 rounded-xl border text-charcoal placeholder-gray-400 bg-white",
+              "w-full px-3.5 py-2.5 rounded-lg border text-sm text-charcoal placeholder-gray-400 bg-white",
               "focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent",
               "transition-all duration-200",
               errors.phone ? "border-red-400 bg-red-50" : "border-gray-200"
@@ -187,7 +187,7 @@ export function ContactForm() {
           {...register("service")}
           id="service"
           className={cn(
-            "w-full px-4 py-3 rounded-xl border text-charcoal bg-white",
+            "w-full px-3.5 py-2.5 rounded-lg border text-sm text-charcoal bg-white",
             "focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent",
             "transition-all duration-200",
             "border-gray-200"
@@ -248,10 +248,10 @@ export function ContactForm() {
         <textarea
           {...register("message")}
           id="message"
-          rows={5}
+          rows={4}
           placeholder="Tell us about your health goals, questions, or what you're looking for..."
           className={cn(
-            "w-full px-4 py-3 rounded-xl border text-charcoal placeholder-gray-400 bg-white resize-none",
+            "w-full px-3.5 py-2.5 rounded-lg border text-sm text-charcoal placeholder-gray-400 bg-white resize-none",
             "focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent",
             "transition-all duration-200",
             errors.message ? "border-red-400 bg-red-50" : "border-gray-200"

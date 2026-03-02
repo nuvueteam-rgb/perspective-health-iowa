@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle, ArrowRight, Phone, ExternalLink } from "lucide-react";
 import { CTABanner } from "@/components/home/CTABanner";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -48,6 +49,8 @@ export default function FullscriptPage() {
           </p>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* Intro + Fullscript card */}
       <section className="section-padding bg-white">
@@ -99,6 +102,8 @@ export default function FullscriptPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* Why Fullscript? */}
       <section className="section-padding bg-sage/40">
         <div className="section-container max-w-4xl">
@@ -130,6 +135,8 @@ export default function FullscriptPage() {
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* How It Works */}
       <section className="section-padding bg-white">
@@ -182,6 +189,8 @@ export default function FullscriptPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* CTA info banner */}
       <section className="section-padding bg-white pt-0">
         <div className="section-container max-w-4xl">
@@ -205,7 +214,7 @@ export default function FullscriptPage() {
                 Call Us
               </a>
               <Link
-                href="/contact"
+                href="/contact#contact-form"
                 className="btn-outline-teal text-sm inline-flex items-center gap-2"
               >
                 Contact Us <ArrowRight size={14} />

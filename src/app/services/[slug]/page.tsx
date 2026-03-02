@@ -13,6 +13,7 @@ import { FAQSchema } from "@/components/seo/FAQSchema";
 import SymptomExplorer from "@/components/SymptomExplorer";
 import ModalityExplorer from "@/components/ModalityExplorer";
 import { CTABanner } from "@/components/home/CTABanner";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 
 interface Props {
   params: { slug: string };
@@ -196,6 +197,8 @@ export default function ServicePage({ params }: Props) {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* Content */}
       {service.slug === "comprehensive-primary-care" && service.accordionSections ? (
         /* ── Primary Care layout ── */
@@ -257,7 +260,7 @@ export default function ServicePage({ params }: Props) {
                 </div>
                 <div className="flex justify-center mt-10">
                   <Link
-                    href="/contact"
+                    href="/contact#contact-form"
                     className="inline-flex items-center justify-center px-14 py-5 rounded-full text-lg font-bold text-white bg-teal hover:bg-teal-600 transition-colors shadow-md"
                   >
                     Learn More
@@ -301,7 +304,7 @@ export default function ServicePage({ params }: Props) {
                   <p className="text-white/80 max-w-md">Our team is ready to answer your questions and help you take the first step toward better health.</p>
                 </div>
                 <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                  <Link href="/contact" className="btn-teal whitespace-nowrap">Book Your Appointment</Link>
+                  <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">Book Your Appointment</Link>
                   <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">New patient info &rarr;</Link>
                 </div>
               </div>
@@ -369,6 +372,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
+          <SectionDivider />
+
           {/* Section 2 — Functional Medicine vs. Integrative Medicine */}
           <section className="bg-sage/40 geometric-pattern-light">
             <div className="section-container py-16 sm:py-20 lg:py-24">
@@ -430,6 +435,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
+          <SectionDivider />
+
           {/* Section 3 — White: Image LEFT, headline + accordion RIGHT */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
@@ -474,7 +481,7 @@ export default function ServicePage({ params }: Props) {
 
                   <div className="mt-10">
                     <Link
-                      href="/contact"
+                      href="/contact#contact-form"
                       className="inline-flex items-center justify-center px-12 py-4 rounded-full text-lg font-bold text-white bg-teal hover:bg-teal-600 transition-colors shadow-md"
                     >
                       Learn More
@@ -484,6 +491,8 @@ export default function ServicePage({ params }: Props) {
               </div>
             </div>
           </section>
+
+          <SectionDivider />
 
           {/* CTA + Related Services */}
           <section className="bg-white">
@@ -508,7 +517,7 @@ export default function ServicePage({ params }: Props) {
                     </p>
                   </div>
                   <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact" className="btn-teal whitespace-nowrap">
+                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
                       Book Your Appointment
                     </Link>
                     <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
@@ -596,6 +605,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
+          <SectionDivider />
+
           {/* Section 2 — Teal bg: Our Approach + service cards grid */}
           <section className="bg-teal geometric-pattern">
             <div className="section-container py-16 sm:py-20 lg:py-24 relative z-10">
@@ -657,6 +668,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
+          <SectionDivider />
+
           {/* Section 3 — White: Benefits left with bullets, image right */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
@@ -679,7 +692,7 @@ export default function ServicePage({ params }: Props) {
                   </div>
                   <p className="text-teal italic text-lg leading-relaxed">
                     At Perspective Health Iowa, we&apos;re here to support your gut health journey, offering expert guidance and personalized care.{" "}
-                    <Link href="/contact" className="underline hover:text-teal-600 transition-colors">
+                    <Link href="/contact#contact-form" className="underline hover:text-teal-600 transition-colors">
                       Contact us today
                     </Link>{" "}
                     to learn more about how our services can help you thrive.
@@ -688,7 +701,7 @@ export default function ServicePage({ params }: Props) {
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
                   <Image
                     src="/images/approach-1.jpg"
-                    alt="Digestive health care at Perspective Health"
+                    alt="Digestive health care at Perspective Health Iowa"
                     fill
                     quality={85}
                     className="object-cover"
@@ -698,6 +711,8 @@ export default function ServicePage({ params }: Props) {
               </div>
             </div>
           </section>
+
+          <SectionDivider />
 
           {/* CTA + Related Services */}
           <section className="bg-white">
@@ -721,7 +736,7 @@ export default function ServicePage({ params }: Props) {
                     </p>
                   </div>
                   <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact" className="btn-teal whitespace-nowrap">
+                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
                       Book Your Appointment
                     </Link>
                     <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
@@ -808,6 +823,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
+          <SectionDivider />
+
           {/* Section 2 — Teal: Interactive Modality Explorer */}
           <section className="bg-teal geometric-pattern">
             <div className="section-container py-16 sm:py-20 lg:py-24 relative z-10">
@@ -822,6 +839,8 @@ export default function ServicePage({ params }: Props) {
               <ModalityExplorer />
             </div>
           </section>
+
+          <SectionDivider />
 
           {/* Section 3 — White: Gallery left, What to Expect right */}
           <section className="bg-white">
@@ -858,7 +877,7 @@ export default function ServicePage({ params }: Props) {
                   </div>
                   <div className="mt-10">
                     <Link
-                      href="/contact"
+                      href="/contact#contact-form"
                       className="inline-flex items-center justify-center px-10 py-4 rounded-full text-base font-bold text-white bg-teal hover:bg-teal-600 transition-colors shadow-md"
                     >
                       Book a Session
@@ -868,6 +887,8 @@ export default function ServicePage({ params }: Props) {
               </div>
             </div>
           </section>
+
+          <SectionDivider />
 
           {/* Section 4 — Sage: Benefits left, image right */}
           <section className="bg-sage/30">
@@ -904,6 +925,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
+          <SectionDivider />
+
           {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
@@ -926,7 +949,7 @@ export default function ServicePage({ params }: Props) {
                     </p>
                   </div>
                   <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact" className="btn-teal whitespace-nowrap">
+                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
                       Book Your Appointment
                     </Link>
                     <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
@@ -1016,6 +1039,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
+          <SectionDivider />
+
           {/* Section 2 — White: Text left about BHRT, image right */}
           <section className="bg-white border-t border-gray-200">
             <div className="section-container py-16 sm:py-20 lg:py-24">
@@ -1054,6 +1079,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
+          <SectionDivider />
+
           {/* Section 3 — Sage: Interactive Symptom Explorer */}
           <section className="bg-sage/30">
             <div className="section-container py-16 sm:py-20 lg:py-24">
@@ -1071,6 +1098,8 @@ export default function ServicePage({ params }: Props) {
               </div>
             </div>
           </section>
+
+          <SectionDivider />
 
           {/* CTA + Related Services */}
           <section className="bg-white">
@@ -1094,7 +1123,7 @@ export default function ServicePage({ params }: Props) {
                     </p>
                   </div>
                   <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact" className="btn-teal whitespace-nowrap">
+                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
                       Book Your Appointment
                     </Link>
                     <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
@@ -1194,6 +1223,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
+          <SectionDivider />
+
           {/* Section 2 — Supplement Delivery (Fullscript) */}
           <section className="bg-white border-t border-gray-200">
             <div className="section-container py-16 sm:py-20 lg:py-24">
@@ -1211,7 +1242,7 @@ export default function ServicePage({ params }: Props) {
                     Order Healthcare&apos;s Best Supplements &mdash; Delivered to Your Door.
                   </p>
                   <Link
-                    href="/contact"
+                    href="/contact#contact-form"
                     className="inline-flex items-center justify-center px-8 py-3 rounded-full text-sm font-bold text-white bg-purple hover:bg-purple/90 transition-colors shadow-md"
                   >
                     Visit Our Store
@@ -1220,6 +1251,8 @@ export default function ServicePage({ params }: Props) {
               </div>
             </div>
           </section>
+
+          <SectionDivider />
 
           {/* Section 3 — Supplemental Services: image left with pattern, text right */}
           <section className="bg-white border-t border-gray-200">
@@ -1253,6 +1286,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
+          <SectionDivider />
+
           {/* Section 4 — Patient Packages */}
           <section className="bg-sage/30 geometric-pattern-light">
             <div className="section-container py-16 sm:py-20 lg:py-24">
@@ -1277,6 +1312,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
+          <SectionDivider />
+
           {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
@@ -1299,7 +1336,7 @@ export default function ServicePage({ params }: Props) {
                     </p>
                   </div>
                   <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact" className="btn-teal whitespace-nowrap">
+                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
                       Book Your Appointment
                     </Link>
                     <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
@@ -1529,7 +1566,7 @@ export default function ServicePage({ params }: Props) {
                     </p>
                   </div>
                   <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact" className="btn-teal whitespace-nowrap">
+                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
                       Book Your Appointment
                     </Link>
                     <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">

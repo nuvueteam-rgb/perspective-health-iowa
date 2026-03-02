@@ -8,6 +8,7 @@ import { GoogleReviews } from "@/components/home/GoogleReviews";
 import { InsurancePartners } from "@/components/home/InsurancePartners";
 import { CTABanner } from "@/components/home/CTABanner";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export const metadata: Metadata = {
   title: "Integrative Medical Clinic in Iowa | Perspective Health Iowa",
@@ -26,11 +27,17 @@ export default function HomePage() {
     <>
       <LocalBusinessSchema />
       <HeroSection />
+      <SectionDivider />
       <WelcomeSection />
+      <SectionDivider />
       <ServicesSection />
+      <SectionDivider />
       <OurApproach />
+      <SectionDivider />
       <ProvidersSection />
+      <SectionDivider />
       <GoogleReviews />
+      <SectionDivider />
       <InsurancePartners />
       <CTABanner />
     </>

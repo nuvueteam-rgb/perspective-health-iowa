@@ -23,7 +23,7 @@ export function CTABanner({
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
-              href="/contact"
+              href="/contact#contact-form"
               className="btn-teal px-7 py-2.5 text-sm"
             >
               Schedule a Consultation
