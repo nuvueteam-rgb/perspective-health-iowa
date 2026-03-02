@@ -172,6 +172,7 @@ export const NAVIGATION_LINKS = [
     children: [
       { label: "New Patients", href: "/for-patients" },
       { label: "Elation Passport Portal", href: "https://app.elationpassport.com/passport/login/" },
+      { label: "Fullscript Supplements", href: "/for-patients/fullscript" },
     ],
   },
   { label: "Insurance", href: "/insurance" },
