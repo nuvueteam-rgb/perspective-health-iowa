@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CheckCircle, ChevronRight, ArrowRight } from "lucide-react";
+import { CheckCircle, ChevronRight, ArrowRight, BookOpen } from "lucide-react";
 import {
   getServiceBySlug,
   getAllServiceSlugs,
@@ -43,6 +43,68 @@ export default function ServicePage({ params }: Props) {
   const relatedServices = service.relatedServices
     .map((slug) => SERVICES.find((s) => s.slug === slug))
     .filter(Boolean);
+
+  const blogLinksMap: Record<string, { slug: string; title: string; teaser: string }[]> = {
+    "comprehensive-primary-care": [{
+      slug: "preventive-primary-care-foundation-lifelong-health",
+      title: "Why Preventive Primary Care Is the Foundation of Lifelong Health",
+      teaser: "Most people only visit the doctor when something goes wrong. But proactive, preventive primary care is the real key to long-term health. Learn how an integrative approach can help you stay ahead of illness and build a foundation for lifelong wellness.",
+    }],
+    "hormone-health": [{
+      slug: "signs-hormones-out-of-balance",
+      title: "5 Signs Your Hormones May Be Out of Balance",
+      teaser: "Fatigue, weight changes, mood swings, and sleep disruptions could all be signs of a hormonal imbalance. Discover the most common symptoms and learn how integrative hormone therapy can help restore balance.",
+    }],
+    "integrative-functional-medicine": [
+      {
+        slug: "functional-medicine-vs-traditional-medicine",
+        title: "Functional Medicine vs Traditional Medicine: What's the Difference?",
+        teaser: "Wondering what sets functional medicine apart from conventional care? Learn how a root-cause approach can uncover the deeper reasons behind your symptoms and lead to lasting results.",
+      },
+      {
+        slug: "what-is-integrative-medicine",
+        title: "What Is Integrative Medicine? A Guide for Urbandale & Des Moines Area Residents",
+        teaser: "Integrative medicine combines the best of conventional and holistic care. Learn what it means and how it could change your health journey.",
+      },
+    ],
+    "digestive-metabolic-health": [{
+      slug: "gut-health-connection-digestive-system",
+      title: "The Gut-Health Connection: How Your Digestive System Affects Everything",
+      teaser: "Your gut does far more than digest food — it influences your mood, immune system, and overall health. Explore the gut-health connection and discover how functional nutrition can make a difference.",
+    }],
+    "supplementary-services": [{
+      slug: "supplementary-wellness-services-support-health",
+      title: "Beyond Conventional Care: Supplementary Wellness Services That Support Your Health Journey",
+      teaser: "Sometimes your body needs extra support beyond routine care. Learn how supplementary wellness services like IV therapy, injections, and practitioner-grade supplements can complement your health plan.",
+    }],
+    "hocatt": [{
+      slug: "what-is-hocatt-therapy-benefits",
+      title: "What Is HOCATT Therapy? Benefits, Process, and What to Expect",
+      teaser: "HOCATT ozone sauna therapy delivers 10 therapeutic modalities in a single 30-minute session. Learn how it works, what to expect, and who benefits most from this advanced wellness therapy.",
+    }],
+  };
+
+  const blogLinks = blogLinksMap[service.slug] || [];
+  const blogNudge = blogLinks.length > 0 ? (
+    <div className="bg-sage/30 border border-sage/50 rounded-2xl p-6 sm:p-8 mb-12">
+      <div className="flex items-start gap-4">
+        <div className="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <BookOpen size={20} className="text-teal" />
+        </div>
+        <div className="flex-1">
+          <h3 className="font-bold text-charcoal text-lg mb-3">Learn More</h3>
+          {blogLinks.map((blog, i) => (
+            <div key={i} className={i > 0 ? "mt-4 pt-4 border-t border-sage/50" : ""}>
+              <p className="text-gray-600 text-sm leading-relaxed mb-2">{blog.teaser}</p>
+              <Link href={`/blog/${blog.slug}`} className="inline-flex items-center gap-2 text-teal font-semibold text-sm hover:underline transition-colors">
+                Read More on Our Blog <ArrowRight size={14} />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  ) : null;
 
   return (
     <>
@@ -188,6 +250,8 @@ export default function ServicePage({ params }: Props) {
                 </div>
               </aside>
             </div>
+
+            {blogNudge}
 
             {/* CTA */}
             <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
@@ -389,6 +453,8 @@ export default function ServicePage({ params }: Props) {
           {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
+              {blogNudge}
+
               {/* CTA */}
               <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
@@ -601,6 +667,8 @@ export default function ServicePage({ params }: Props) {
           {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
+              {blogNudge}
+
               <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
                   <div className="flex-shrink-0">
@@ -804,6 +872,8 @@ export default function ServicePage({ params }: Props) {
           {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
+              {blogNudge}
+
               <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
                   <div className="flex-shrink-0">
@@ -929,10 +999,10 @@ export default function ServicePage({ params }: Props) {
                     Our comprehensive hormone health program empowers you to restore balance, vitality, and optimal well-being from the inside out. Regain your zest for living and thrive through every life stage by achieving hormonal harmony.
                   </p>
                   <Link
-                    href="/blog"
+                    href="/blog/signs-hormones-out-of-balance"
                     className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-bold text-white bg-teal hover:bg-teal-600 transition-colors shadow-md uppercase tracking-wide"
                   >
-                    Read About Mental Health and Hormonal Balance
+                    Read About Hormonal Imbalance Signs
                   </Link>
                 </div>
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
@@ -970,6 +1040,8 @@ export default function ServicePage({ params }: Props) {
           {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
+              {blogNudge}
+
               <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
                   <div className="flex-shrink-0">
@@ -1173,6 +1245,8 @@ export default function ServicePage({ params }: Props) {
           {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
+              {blogNudge}
+
               <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
                   <div className="flex-shrink-0">
@@ -1399,6 +1473,8 @@ export default function ServicePage({ params }: Props) {
                   ))}
                 </div>
               </section>
+
+              {blogNudge}
 
               {/* CTA */}
               <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
