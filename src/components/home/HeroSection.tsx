@@ -30,10 +30,10 @@ export function HeroSection() {
 
         {/* Highlighted headline blocks */}
         <h1 className="flex flex-col items-start gap-2 sm:gap-3">
-          <span className="inline-block bg-teal px-4 py-2 sm:px-6 sm:py-3 text-white text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-widest uppercase">
+          <span className="inline-block bg-teal px-4 py-2 sm:px-6 sm:py-3 text-white text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-normal tracking-widest uppercase">
             Experience Healthcare
           </span>
-          <span className="inline-block bg-purple px-4 py-2 sm:px-6 sm:py-3 text-white text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-widest uppercase">
+          <span className="inline-block bg-purple px-4 py-2 sm:px-6 sm:py-3 text-white text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-normal tracking-widest uppercase">
             From a New Perspective
           </span>
         </h1>
