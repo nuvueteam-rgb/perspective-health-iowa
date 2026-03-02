@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CheckCircle, ChevronRight, ArrowRight, BookOpen } from "lucide-react";
+import { CheckCircle, ArrowRight, BookOpen } from "lucide-react";
 import {
   getServiceBySlug,
   getAllServiceSlugs,
@@ -165,34 +165,18 @@ export default function ServicePage({ params }: Props) {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
         </div>
-        {/* Breadcrumb */}
-        <div className="absolute top-24 left-0 right-0 z-10">
-          <nav
-            aria-label="Breadcrumb"
-            className="section-container text-sm text-white/70"
-          >
-            <ol className="flex items-center gap-1.5">
-              <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <ChevronRight size={12} className="flex-shrink-0" />
-              <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  Services
-                </Link>
-              </li>
-              <ChevronRight size={12} className="flex-shrink-0" />
-              <li className="text-white">{service.name}</li>
-            </ol>
-          </nav>
-        </div>
-        {/* Heading */}
         <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white max-w-2xl leading-tight">
-            {service.headline}
+          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white -rotate-2 font-light mb-2 sm:mb-3 ml-1">
+            {service.heroScript}
+          </p>
+          <h1 className="flex flex-col items-start gap-2 sm:gap-3">
+            <span className="inline-block bg-teal/90 px-4 py-2.5 sm:px-6 sm:py-3 text-white text-xl sm:text-2xl lg:text-3xl font-normal tracking-wide uppercase">
+              {service.headline}
+            </span>
           </h1>
+          <p className="text-white/80 text-lg max-w-xl mt-4">
+            {service.heroSubtitle}
+          </p>
         </div>
       </section>
 

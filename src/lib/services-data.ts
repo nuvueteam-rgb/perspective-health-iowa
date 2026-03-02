@@ -2,6 +2,8 @@ export interface ServiceData {
   slug: string;
   name: string;
   headline: string;
+  heroScript: string;
+  heroSubtitle: string;
   metaDescription: string;
   heroImage: string;
   heroImageAlt: string;
@@ -20,7 +22,9 @@ export const servicesData: ServiceData[] = [
   {
     slug: "comprehensive-primary-care",
     name: "Comprehensive Primary Care",
-    headline: "Comprehensive Primary Care in Iowa",
+    headline: "Comprehensive Primary Care",
+    heroScript: "Your Health, Our Priority",
+    heroSubtitle: "Primary care that goes beyond annual checkups — we partner with you to build a proactive plan for lasting wellbeing.",
     metaDescription:
       "Whole-person primary care in Iowa at Perspective Health. We go beyond symptom management to address root causes and support your long-term health.",
     heroImage: "/images/service-primary-care.jpg",
@@ -135,7 +139,9 @@ export const servicesData: ServiceData[] = [
   {
     slug: "hormone-health",
     name: "Hormone Health",
-    headline: "Hormone Health Services in Iowa",
+    headline: "Hormone Health",
+    heroScript: "Find Your Balance",
+    heroSubtitle: "Comprehensive hormone evaluation and personalized treatment to help you feel like yourself again.",
     metaDescription:
       "Personalized hormone evaluation and balancing in Iowa at Perspective Health. We help men and women experiencing hormonal imbalances reclaim their energy, mood, and vitality.",
     heroImage: "/images/service-hormone-health.jpg",
@@ -200,7 +206,9 @@ export const servicesData: ServiceData[] = [
   {
     slug: "integrative-functional-medicine",
     name: "Integrative and Functional Medicine",
-    headline: "Integrative & Functional Medicine in Iowa",
+    headline: "Integrative & Functional Medicine",
+    heroScript: "Deeper Answers",
+    heroSubtitle: "Root-cause medicine that looks at the whole picture — not just symptoms — to restore your health from the inside out.",
     metaDescription:
       "Evidence-based integrative and functional medicine in Iowa at Perspective Health. We identify root causes of chronic illness using advanced testing and personalized treatment plans.",
     heroImage: "/images/service-integrative-medicine.jpg",
@@ -311,7 +319,9 @@ export const servicesData: ServiceData[] = [
   {
     slug: "digestive-metabolic-health",
     name: "Digestive & Metabolic Health",
-    headline: "Digestive & Metabolic Health Services in Iowa",
+    headline: "Digestive & Metabolic Health",
+    heroScript: "Heal from Within",
+    heroSubtitle: "Targeted evaluation and treatment for gut health, metabolic imbalances, and the conditions they drive.",
     metaDescription:
       "Expert digestive and metabolic health care in Iowa at Perspective Health. We address IBS, SIBO, gut dysbiosis, metabolic syndrome, insulin resistance, and weight management.",
     heroImage: "/images/service-digestive-metabolic.jpg",
@@ -364,7 +374,9 @@ export const servicesData: ServiceData[] = [
   {
     slug: "supplementary-services",
     name: "Supplementary Services",
-    headline: "Supplementary Health Services in Iowa",
+    headline: "Supplementary Services",
+    heroScript: "Beyond the Basics",
+    heroSubtitle: "Additional therapies and tools to complement your care plan and support your wellness journey.",
     metaDescription:
       "Targeted supplementary health services in Iowa at Perspective Health including IV nutrient therapy, nutrition counseling, and wellness support to complement your care plan.",
     heroImage: "/images/service-supplementary.jpg",
@@ -415,7 +427,9 @@ export const servicesData: ServiceData[] = [
   {
     slug: "hocatt",
     name: "HOCATT Ozone Sauna",
-    headline: "HOCATT Ozone Sauna Therapy in Iowa",
+    headline: "HOCATT Ozone Sauna",
+    heroScript: "Restore & Rejuvenate",
+    heroSubtitle: "Advanced ozone sauna therapy that combines ten modalities in a single session to detoxify, energize, and heal.",
     metaDescription:
       "Experience HOCATT ozone sauna therapy in Iowa at Perspective Health. A single 30-minute session delivers up to 10 therapeutic modalities to support detox, immunity, pain relief, and recovery.",
     heroImage: "/images/service-hocatt.jpg",
