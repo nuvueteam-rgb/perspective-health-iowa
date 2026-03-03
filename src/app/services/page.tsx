@@ -34,7 +34,7 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
         </div>
         <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
-          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white -rotate-2 font-light mb-2 sm:mb-3 ml-1">
+          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white font-light mb-2 sm:mb-3 ml-1">
             What We Offer
           </p>
           <h1 className="flex flex-col items-start gap-2 sm:gap-3">
@@ -91,7 +91,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Insurance note */}
-      <section className="py-16 bg-sage/40">
+      <section className="py-16 bg-white">
         <div className="section-container text-center">
           <h2 className="text-2xl font-bold text-charcoal mb-2">
             Most Services Covered by Insurance
@@ -107,13 +107,22 @@ export default function ServicesPage() {
                 key={partner.name}
                 className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 w-32 h-20 flex items-center justify-center hover:shadow-md transition-shadow"
               >
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={100}
-                  height={40}
-                  className="object-contain max-h-10"
-                />
+                {partner.logo.endsWith(".svg") ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="object-contain max-h-10 max-w-full"
+                  />
+                ) : (
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={100}
+                    height={40}
+                    className="object-contain max-h-10"
+                  />
+                )}
               </div>
             ))}
           </div>

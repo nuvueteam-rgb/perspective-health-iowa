@@ -105,8 +105,14 @@
     background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M40 0 L42 18 L50 10 L44 22 L60 20 L48 28 L58 38 L44 34 L46 52 L40 40 L34 52 L36 34 L22 38 L32 28 L20 20 L36 22 L30 10 L38 18 Z'/%3E%3Cpath d='M40 28 L41 36 L45 32 L42 37 L48 36 L43 40 L48 44 L42 43 L43 51 L40 45 L37 51 L38 43 L32 44 L37 40 L32 36 L38 37 L35 32 L39 36 Z' fill-opacity='0.04'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 
+  .geometric-pattern-green {
+    background-color: #1ABC9C;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.35'%3E%3Cpath d='M50 50 C55 35 65 25 80 20 C75 35 65 45 50 50 Z' fill='%234CCAB0'/%3E%3Cpath d='M50 50 C45 65 35 75 20 80 C25 65 35 55 50 50 Z' fill='%234CCAB0'/%3E%3Cpath d='M50 50 C35 45 25 35 20 20 C35 25 45 35 50 50 Z' fill='%234CCAB0'/%3E%3Cpath d='M50 50 C65 55 75 65 80 80 C65 75 55 65 50 50 Z' fill='%234CCAB0'/%3E%3Cpath d='M50 50 C50 35 55 20 50 5 C45 20 50 35 50 50 Z' fill='%234CCAB0'/%3E%3Cpath d='M50 50 C50 65 45 80 50 95 C55 80 50 65 50 50 Z' fill='%234CCAB0'/%3E%3Cpath d='M50 50 C65 50 80 45 95 50 C80 55 65 50 50 50 Z' fill='%234CCAB0'/%3E%3Cpath d='M50 50 C35 50 20 55 5 50 C20 45 35 50 50 50 Z' fill='%234CCAB0'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
   .geometric-pattern-light {
-    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300BCD4' fill-opacity='0.07'%3E%3Cpath d='M40 0 L42 18 L50 10 L44 22 L60 20 L48 28 L58 38 L44 34 L46 52 L40 40 L34 52 L36 34 L22 38 L32 28 L20 20 L36 22 L30 10 L38 18 Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-color: #E8F5E9;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.35'%3E%3Cpath d='M50 50 C55 35 65 25 80 20 C75 35 65 45 50 50 Z' fill='%23D0E8D0'/%3E%3Cpath d='M50 50 C45 65 35 75 20 80 C25 65 35 55 50 50 Z' fill='%23D0E8D0'/%3E%3Cpath d='M50 50 C35 45 25 35 20 20 C35 25 45 35 50 50 Z' fill='%23D0E8D0'/%3E%3Cpath d='M50 50 C65 55 75 65 80 80 C65 75 55 65 50 50 Z' fill='%23D0E8D0'/%3E%3Cpath d='M50 50 C50 35 55 20 50 5 C45 20 50 35 50 50 Z' fill='%23D0E8D0'/%3E%3Cpath d='M50 50 C50 65 45 80 50 95 C55 80 50 65 50 50 Z' fill='%23D0E8D0'/%3E%3Cpath d='M50 50 C65 50 80 45 95 50 C80 55 65 50 50 50 Z' fill='%23D0E8D0'/%3E%3Cpath d='M50 50 C35 50 20 55 5 50 C20 45 35 50 50 50 Z' fill='%23D0E8D0'/%3E%3C/g%3E%3C/svg%3E");
   }
 
   /* Card styles */
@@ -154,7 +160,7 @@
 @layer utilities {
   /* Text gradient */
   .text-gradient-teal {
-    @apply bg-gradient-to-r from-teal to-teal-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-teal to-teal-200 bg-clip-text text-transparent;
   }
 
   /* Smooth image zoom on hover */

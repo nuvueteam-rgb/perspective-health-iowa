@@ -34,7 +34,7 @@ export default function FullscriptPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
         </div>
         <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
-          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white -rotate-2 font-light mb-2 sm:mb-3 ml-1">
+          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white font-light mb-2 sm:mb-3 ml-1">
             Supplements Made Simple
           </p>
           <h1 className="flex flex-col items-start gap-2 sm:gap-3">
@@ -90,7 +90,7 @@ export default function FullscriptPage() {
                 href="https://us.fullscript.com/welcome/perspectivehealthdispensary"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-purple hover:bg-purple/90 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+                className="btn-outline-white inline-flex items-center gap-2"
               >
                 Visit Our Store <ExternalLink size={16} />
               </a>

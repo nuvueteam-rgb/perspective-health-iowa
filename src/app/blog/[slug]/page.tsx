@@ -167,7 +167,7 @@ export default async function BlogPostPage({ params }: Props) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact#contact-form" className="btn-primary">
-              Schedule a Consultation
+              Contact Us
             </Link>
             <Link href="/services" className="btn-outline-teal">
               Explore Our Services

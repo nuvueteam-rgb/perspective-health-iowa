@@ -4,7 +4,7 @@ import { SERVICES } from "@/lib/constants";
 
 export function ServicesSection() {
   return (
-    <section className="section-padding bg-green-accent geometric-pattern relative">
+    <section className="section-padding geometric-pattern-green relative">
       <div className="section-container relative z-10">
         {/* Heading */}
         <div className="text-center mb-12">

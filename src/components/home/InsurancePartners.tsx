@@ -5,7 +5,7 @@ import { INSURANCE_PARTNERS } from "@/lib/constants";
 export function InsurancePartners() {
   return (
     <>
-    <section className="section-padding bg-sage/30">
+    <section className="section-padding bg-white">
       <div className="section-container">
         <div className="text-center mb-10">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-charcoal mb-4">

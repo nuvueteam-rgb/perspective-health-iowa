@@ -101,19 +101,14 @@ export function Header() {
                   onMouseLeave={link.children ? handleDropdownLeave : undefined}
                 >
                   {link.children ? (
-                    <button
-                      onClick={() =>
-                        setActiveDropdown(
-                          activeDropdown === link.href ? null : link.href
-                        )
-                      }
+                    <Link
+                      href={link.href}
                       className={cn(
                         "flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:underline underline-offset-4",
                         pathname.startsWith(link.href) && link.href !== "/"
                           ? "text-teal"
                           : "text-white/90 hover:text-teal"
                       )}
-                      aria-expanded={activeDropdown === link.href}
                       aria-haspopup="true"
                     >
                       {link.label}
@@ -124,7 +119,7 @@ export function Header() {
                           activeDropdown === link.href ? "rotate-180" : ""
                         )}
                       />
-                    </button>
+                    </Link>
                   ) : (
                     <Link
                       href={link.href}
@@ -178,7 +173,7 @@ export function Header() {
                   "hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300",
                   isTransparent
                     ? "border-2 border-white text-white hover:bg-white hover:text-purple"
-                    : "text-white bg-teal hover:bg-teal-600 shadow-md hover:shadow-lg"
+                    : "text-white bg-purple hover:bg-purple/90 shadow-md hover:shadow-lg"
                 )}
               >
                 Start Your Health Journey
@@ -246,7 +241,7 @@ export function Header() {
               <div className="pt-3 border-t border-white/10">
                 <Link
                   href="/contact#contact-form"
-                  className="btn-teal w-full justify-center text-sm"
+                  className="bg-purple text-white hover:bg-purple/90 w-full justify-center text-sm inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all"
                 >
                   Start Your Health Journey
                 </Link>

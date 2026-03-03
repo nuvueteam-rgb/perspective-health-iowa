@@ -44,7 +44,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
         </div>
         <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
-          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white -rotate-2 font-light mb-2 sm:mb-3 ml-1">
+          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white font-light mb-2 sm:mb-3 ml-1">
             Get in Touch
           </p>
           <h1 className="flex flex-col items-start gap-2 sm:gap-3">
@@ -182,18 +182,18 @@ export default function ContactPage() {
               </div>
 
               {/* New patient card */}
-              <div className="bg-teal/10 rounded-xl p-5 border border-teal/20 shadow-sm">
-                <p className="font-semibold text-teal mb-1">New Patients Welcome</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
+              <div className="geometric-pattern-green rounded-xl p-5 shadow-sm">
+                <p className="font-semibold text-white mb-1">New Patients Welcome</p>
+                <p className="text-white/80 text-sm leading-relaxed">
                   We&apos;re accepting new patients and would love to be part of
                   your health team. Use the form to introduce yourself, and
                   we&apos;ll reach out to schedule your initial appointment.
                 </p>
                 <Link
                   href="/for-patients"
-                  className="inline-flex items-center gap-1 text-teal font-medium text-sm mt-3 hover:underline"
+                  className="inline-flex items-center gap-2 text-white font-semibold text-sm mt-4 px-5 py-2 rounded-full border-2 border-white/80 hover:bg-white hover:text-green-700 transition-all"
                 >
-                  New patient resources <ArrowRight size={12} />
+                  New Patient Resources <ArrowRight size={14} />
                 </Link>
               </div>
             </div>
