@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function WelcomeSection() {
   return (
-    <section className="section-padding bg-sage/40 geometric-pattern-light">
+    <section className="section-padding bg-white">
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Images */}

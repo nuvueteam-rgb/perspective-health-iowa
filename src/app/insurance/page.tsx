@@ -34,7 +34,7 @@ export default function InsurancePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
         </div>
         <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
-          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white -rotate-2 font-light mb-2 sm:mb-3 ml-1">
+          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white font-light mb-2 sm:mb-3 ml-1">
             No Surprises
           </p>
           <h1 className="flex flex-col items-start gap-2 sm:gap-3">
@@ -119,13 +119,21 @@ export default function InsurancePage() {
       </section>
 
       {/* HSA / FSA */}
-      <section className="section-padding bg-sage/40">
+      <section className="section-padding geometric-pattern-green">
         <div className="section-container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">
+              Pay With <span className="text-white/80">HSA or FSA</span>
+            </h2>
+            <div className="w-16 h-1 bg-white/40 rounded-full mx-auto mt-4" />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                title: "HSA — Health Savings Account",
-                color: "teal",
+                title: "HSA",
+                subtitle: "Health Savings Account",
+                icon: "💰",
+                accent: "teal",
                 points: [
                   "Use pre-tax dollars to pay for eligible healthcare expenses",
                   "Accepted for most services at Perspective Health",
@@ -134,8 +142,10 @@ export default function InsurancePage() {
                 ],
               },
               {
-                title: "FSA — Flexible Spending Account",
-                color: "purple",
+                title: "FSA",
+                subtitle: "Flexible Spending Account",
+                icon: "💳",
+                accent: "purple",
                 points: [
                   "Employer-sponsored pre-tax healthcare spending account",
                   "Use for copays, deductibles, and eligible services",
@@ -146,23 +156,33 @@ export default function InsurancePage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className={`bg-white rounded-2xl p-8 shadow-md border-t-4 ${
-                  item.color === "teal" ? "border-teal" : "border-purple"
-                }`}
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <h3 className="text-xl font-bold text-charcoal mb-4">
-                  {item.title}
-                </h3>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl ${
+                    item.accent === "teal" ? "bg-teal/10" : "bg-purple/10"
+                  }`}>
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className={`text-2xl font-extrabold ${
+                      item.accent === "teal" ? "text-teal" : "text-purple"
+                    }`}>
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm">{item.subtitle}</p>
+                  </div>
+                </div>
                 <ul className="space-y-3">
                   {item.points.map((point, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-600">
+                    <li key={i} className="flex items-start gap-3">
                       <CheckCircle
-                        size={16}
+                        size={18}
                         className={`flex-shrink-0 mt-0.5 ${
-                          item.color === "teal" ? "text-teal" : "text-purple"
+                          item.accent === "teal" ? "text-teal" : "text-purple"
                         }`}
                       />
-                      <span className="text-sm">{point}</span>
+                      <span className="text-sm text-gray-700 leading-relaxed">{point}</span>
                     </li>
                   ))}
                 </ul>
@@ -175,47 +195,54 @@ export default function InsurancePage() {
       {/* Self-pay / Pricing */}
       <section className="section-padding bg-white">
         <div className="section-container max-w-4xl">
-          <h2 className="text-3xl font-extrabold text-charcoal mb-4">
-            SELF-PAY <span className="text-teal">PRICING</span>
-          </h2>
-          <div className="w-16 h-1 bg-teal rounded-full mb-6" />
-          <p className="text-gray-600 mb-8 text-lg">
-            We believe in transparent pricing. If you don&apos;t have insurance
-            or your plan doesn&apos;t cover a specific service, we offer clear,
-            fair self-pay rates. Contact us for a personalized quote.
-          </p>
-
-          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
-            <h3 className="font-bold text-charcoal mb-5">Services available at self-pay rates:</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-              {[
-                "New Patient Comprehensive Visit (60–90 min)",
-                "Follow-Up Visit (30 min)",
-                "Hormone Evaluation & Consultation",
-                "Functional Medicine Consultation",
-                "Nutrition Counseling Session",
-                "Lab Processing (in addition to lab fees)",
-              ].map((service, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 bg-sage/30 rounded-xl p-4"
-                >
-                  <CheckCircle size={16} className="text-teal flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">{service}</span>
-                </div>
-              ))}
-            </div>
-            <div className="bg-teal/10 border border-teal/20 rounded-xl p-5 text-center">
-              <p className="text-charcoal font-semibold mb-1">
-                Contact us for current self-pay rates
-              </p>
-              <p className="text-gray-500 text-sm">
-                Pricing varies by service. Lab fees are billed separately. We&apos;re happy to provide a quote before your visit.
-              </p>
-            </div>
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-charcoal mb-4">
+              SELF-PAY <span className="text-teal">PRICING</span>
+            </h2>
+            <div className="w-16 h-1 bg-teal rounded-full mx-auto mb-6" />
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              We believe in transparent pricing. If you don&apos;t have insurance
+              or your plan doesn&apos;t cover a specific service, we offer clear,
+              fair self-pay rates.
+            </p>
           </div>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {[
+              { service: "New Patient Comprehensive Visit", detail: "60–90 min" },
+              { service: "Follow-Up Visit", detail: "30 min" },
+              { service: "Hormone Evaluation & Consultation", detail: null },
+              { service: "Functional Medicine Consultation", detail: null },
+              { service: "Nutrition Counseling Session", detail: null },
+              { service: "Lab Processing", detail: "in addition to lab fees" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md hover:border-teal/30 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="flex items-start gap-3">
+                  <CheckCircle size={18} className="text-teal flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-sm font-semibold text-charcoal leading-snug">{item.service}</p>
+                    {item.detail && (
+                      <p className="text-xs text-gray-400 mt-1">{item.detail}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-teal/10 border border-teal/20 rounded-2xl p-6 text-center mb-8">
+            <p className="text-charcoal font-semibold mb-1">
+              Contact us for current self-pay rates
+            </p>
+            <p className="text-gray-500 text-sm">
+              Pricing varies by service. Lab fees are billed separately. We&apos;re happy to provide a quote before your visit.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact#contact-form" className="btn-teal">
               Get Pricing Info
             </Link>

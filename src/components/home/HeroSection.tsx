@@ -21,7 +21,7 @@ export function HeroSection() {
       {/* Hero text */}
       <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
         {/* "Be Seen." */}
-        <p className="font-script text-7xl sm:text-8xl lg:text-9xl text-white -rotate-2 font-light mb-2 sm:mb-3 ml-1">
+        <p className="font-script text-7xl sm:text-8xl lg:text-9xl text-white font-light mb-2 sm:mb-3 ml-1">
           Be Seen.
         </p>
 
@@ -35,6 +35,7 @@ export function HeroSection() {
           </span>
         </h1>
       </div>
+
     </section>
   );
 }

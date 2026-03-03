@@ -5,7 +5,7 @@ import { PROVIDERS } from "@/lib/constants";
 
 export function ProvidersSection() {
   return (
-    <section className="section-padding bg-sage/40 geometric-pattern-light">
+    <section className="section-padding geometric-pattern-light">
       <div className="section-container">
         {/* Heading */}
         <div className="text-center mb-14">

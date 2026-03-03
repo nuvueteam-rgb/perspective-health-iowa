@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CheckCircle, ArrowRight, BookOpen } from "lucide-react";
+import { CheckCircle, ArrowRight } from "lucide-react";
 import {
   getServiceBySlug,
   getAllServiceSlugs,
@@ -94,11 +94,11 @@ export default function ServicePage({ params }: Props) {
   const ctaMap: Record<string, { heading: string; subtext: string }> = {
     "comprehensive-primary-care": {
       heading: "Ready for a Primary Care Provider Who Actually Listens?",
-      subtext: "Schedule your first visit and experience the difference.",
+      subtext: "Reach out and experience the difference.",
     },
     "hormone-health": {
       heading: "Think Your Hormones Might Be Out of Balance?",
-      subtext: "Let's find out together — book a hormone health consultation.",
+      subtext: "Let's find out together — reach out to get started.",
     },
     "integrative-functional-medicine": {
       heading: "Looking for Answers Beyond Conventional Medicine?",
@@ -106,7 +106,7 @@ export default function ServicePage({ params }: Props) {
     },
     "digestive-metabolic-health": {
       heading: "Tired of Living With Digestive Issues?",
-      subtext: "Let's get to the root cause — schedule a consultation today.",
+      subtext: "Let's get to the root cause — contact us today.",
     },
     "supplementary-services": {
       heading: "Ready to Explore What Else Is Possible?",
@@ -120,26 +120,6 @@ export default function ServicePage({ params }: Props) {
   const ctaProps = ctaMap[service.slug] || {};
 
   const blogLinks = blogLinksMap[service.slug] || [];
-  const blogNudge = blogLinks.length > 0 ? (
-    <div className="bg-sage/30 border border-sage/50 rounded-2xl p-6 sm:p-8 mb-12">
-      <div className="flex items-start gap-4">
-        <div className="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-          <BookOpen size={20} className="text-teal" />
-        </div>
-        <div className="flex-1">
-          <h3 className="font-bold text-charcoal text-lg mb-3">Learn More</h3>
-          {blogLinks.map((blog, i) => (
-            <div key={i} className={i > 0 ? "mt-4 pt-4 border-t border-sage/50" : ""}>
-              <p className="text-gray-600 text-sm leading-relaxed mb-2">{blog.teaser}</p>
-              <Link href={`/blog/${blog.slug}`} className="inline-flex items-center gap-2 text-teal font-semibold text-sm hover:underline transition-colors">
-                {blog.linkText} <ArrowRight size={14} />
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  ) : null;
 
   return (
     <>
@@ -166,7 +146,7 @@ export default function ServicePage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
         </div>
         <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
-          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white -rotate-2 font-light mb-2 sm:mb-3 ml-1">
+          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white font-light mb-2 sm:mb-3 ml-1">
             {service.heroScript}
           </p>
           <h1 className="flex flex-col items-start gap-2 sm:gap-3">
@@ -207,14 +187,26 @@ export default function ServicePage({ params }: Props) {
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
                   {service.intro}
                 </p>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed mb-8">
                   {service.whatItIs}
                 </p>
+                {blogLinks.length > 0 && (
+                  <div className="flex flex-wrap gap-3">
+                    {blogLinks.map((blog, i) => (
+                      <Link key={i} href={`/blog/${blog.slug}`} className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-green-accent hover:opacity-90 transition-all shadow-md">
+                        {blog.linkText} <ArrowRight size={14} />
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
 
+          </div>
+          <section className="geometric-pattern-light">
+            <div className="section-container py-16 sm:py-20 lg:py-24">
             {/* Two-column: Accordions left, sidebar right */}
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 lg:gap-14 mb-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 lg:gap-14 items-start">
               <div>
                 <div>
                   {service.accordionSections.map((section, i) => (
@@ -239,14 +231,6 @@ export default function ServicePage({ params }: Props) {
                     </details>
                   ))}
                 </div>
-                <div className="flex justify-center mt-10">
-                  <Link
-                    href="/contact#contact-form"
-                    className="inline-flex items-center justify-center px-14 py-5 rounded-full text-lg font-bold text-white bg-teal hover:bg-teal-600 transition-colors shadow-md"
-                  >
-                    Learn More
-                  </Link>
-                </div>
               </div>
 
               <aside className="space-y-6 lg:sticky lg:top-8">
@@ -269,29 +253,12 @@ export default function ServicePage({ params }: Props) {
                 </div>
               </aside>
             </div>
+            </div>
+          </section>
 
-            {blogNudge}
-
-            {/* CTA */}
-            <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
-              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                <div className="flex-shrink-0">
-                  <div className="w-20 h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-sm">
-                    <ArrowRight size={32} className="text-teal" />
-                  </div>
-                </div>
-                <div className="flex-grow text-center md:text-left">
-                  <h2 className="text-2xl sm:text-3xl font-extrabold mb-2">Ready to Get Started?</h2>
-                  <p className="text-white/80 max-w-md">Our team is ready to answer your questions and help you take the first step toward better health.</p>
-                </div>
-                <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                  <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">Book Your Appointment</Link>
-                  <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">New patient info &rarr;</Link>
-                </div>
-              </div>
-            </section>
-
-            {/* Related services */}
+          <section className="bg-white">
+            <div className="section-container py-16 sm:py-20 lg:py-24">
+{/* Related services */}
             {relatedServices.length > 0 && (
               <section>
                 <h2 className="text-2xl font-bold text-charcoal mb-6">Related Services</h2>
@@ -313,6 +280,7 @@ export default function ServicePage({ params }: Props) {
               </section>
             )}
           </div>
+          </section>
         </article>
       ) : service.slug === "integrative-functional-medicine" && service.accordionSections ? (
         /* ── Integrative Medicine alternating sections layout ── */
@@ -354,7 +322,7 @@ export default function ServicePage({ params }: Props) {
           </section>
 
               {/* Section 2 — Functional Medicine vs. Integrative Medicine */}
-          <section className="bg-sage/40 geometric-pattern-light">
+          <section className="geometric-pattern-light">
             <div className="section-container py-16 sm:py-20 lg:py-24">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
                 <div>
@@ -395,10 +363,19 @@ export default function ServicePage({ params }: Props) {
                     nontraditional healthcare practices to make each person&apos;s care
                     collaborative and comprehensive.
                   </p>
-                  <p className="text-teal italic text-lg leading-relaxed">
+                  <p className="text-teal italic text-lg leading-relaxed mb-8">
                     Everyone deserves to &ldquo;Be Seen.&rdquo; We&apos;d love to partner
                     with you to help you meet your health needs.
                   </p>
+                  {blogLinks.length > 0 && (
+                    <div className="flex flex-wrap gap-3">
+                      {blogLinks.map((blog, i) => (
+                        <Link key={i} href={`/blog/${blog.slug}`} className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-green-accent hover:opacity-90 transition-all shadow-md">
+                          {blog.linkText} <ArrowRight size={14} />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-lg">
                   <Image
@@ -459,7 +436,7 @@ export default function ServicePage({ params }: Props) {
                   <div className="mt-10">
                     <Link
                       href="/contact#contact-form"
-                      className="inline-flex items-center justify-center px-12 py-4 rounded-full text-lg font-bold text-white bg-teal hover:bg-teal-600 transition-colors shadow-md"
+                      className="btn-teal text-lg px-12 py-4"
                     >
                       Learn More
                     </Link>
@@ -472,37 +449,7 @@ export default function ServicePage({ params }: Props) {
               {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
-              {blogNudge}
-
-              {/* CTA */}
-              <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
-                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-sm">
-                      <ArrowRight size={32} className="text-teal" />
-                    </div>
-                  </div>
-                  <div className="flex-grow text-center md:text-left">
-                    <h2 className="text-2xl sm:text-3xl font-extrabold mb-2">
-                      Ready to Get Started?
-                    </h2>
-                    <p className="text-white/80 max-w-md">
-                      Our team is ready to answer your questions and help you take the
-                      first step toward better health.
-                    </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
-                      Book Your Appointment
-                    </Link>
-                    <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
-                      New patient info &rarr;
-                    </Link>
-                  </div>
-                </div>
-              </section>
-
-              {/* Related services */}
+{/* Related services */}
               {relatedServices.length > 0 && (
                 <section>
                   <h2 className="text-2xl font-bold text-charcoal mb-6">
@@ -580,8 +527,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
-              {/* Section 2 — Teal bg: Our Approach + service cards grid */}
-          <section className="bg-teal geometric-pattern">
+              {/* Section 2 — Green bg: Our Approach + service cards grid */}
+          <section className="geometric-pattern-green">
             <div className="section-container py-16 sm:py-20 lg:py-24 relative z-10">
               <div className="mb-12">
                 <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white leading-tight mb-4">
@@ -661,13 +608,22 @@ export default function ServicePage({ params }: Props) {
                       );
                     })}
                   </div>
-                  <p className="text-teal italic text-lg leading-relaxed">
+                  <p className="text-teal italic text-lg leading-relaxed mb-8">
                     At Perspective Health Iowa, we&apos;re here to support your gut health journey, offering expert guidance and personalized care.{" "}
                     <Link href="/contact#contact-form" className="underline hover:text-teal-600 transition-colors">
                       Contact us today
                     </Link>{" "}
                     to learn more about how our services can help you thrive.
                   </p>
+                  {blogLinks.length > 0 && (
+                    <div className="flex flex-wrap gap-3">
+                      {blogLinks.map((blog, i) => (
+                        <Link key={i} href={`/blog/${blog.slug}`} className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-green-accent hover:opacity-90 transition-all shadow-md">
+                          {blog.linkText} <ArrowRight size={14} />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
                   <Image
@@ -686,36 +642,7 @@ export default function ServicePage({ params }: Props) {
               {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
-              {blogNudge}
-
-              <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
-                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-sm">
-                      <ArrowRight size={32} className="text-teal" />
-                    </div>
-                  </div>
-                  <div className="flex-grow text-center md:text-left">
-                    <h2 className="text-2xl sm:text-3xl font-extrabold mb-2">
-                      Ready to Get Started?
-                    </h2>
-                    <p className="text-white/80 max-w-md">
-                      Our team is ready to answer your questions and help you take the
-                      first step toward better health.
-                    </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
-                      Book Your Appointment
-                    </Link>
-                    <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
-                      New patient info &rarr;
-                    </Link>
-                  </div>
-                </div>
-              </section>
-
-              {relatedServices.length > 0 && (
+{relatedServices.length > 0 && (
                 <section>
                   <h2 className="text-2xl font-bold text-charcoal mb-6">
                     Related Services
@@ -792,8 +719,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
-              {/* Section 2 — Teal: Interactive Modality Explorer */}
-          <section className="bg-teal geometric-pattern">
+              {/* Section 2 — Green: Interactive Modality Explorer */}
+          <section className="geometric-pattern-green">
             <div className="section-container py-16 sm:py-20 lg:py-24 relative z-10">
               <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white leading-tight mb-4">
@@ -843,7 +770,7 @@ export default function ServicePage({ params }: Props) {
                   <div className="mt-10">
                     <Link
                       href="/contact#contact-form"
-                      className="inline-flex items-center justify-center px-10 py-4 rounded-full text-base font-bold text-white bg-teal hover:bg-teal-600 transition-colors shadow-md"
+                      className="btn-teal text-base px-10 py-4"
                     >
                       Book a Session
                     </Link>
@@ -853,8 +780,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
-              {/* Section 4 — Sage: Benefits left, image right */}
-          <section className="bg-sage/30">
+              {/* Section 4 — Light green: Benefits left, image right */}
+          <section className="geometric-pattern-light">
             <div className="section-container py-16 sm:py-20 lg:py-24">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
                 <div>
@@ -870,9 +797,18 @@ export default function ServicePage({ params }: Props) {
                       </div>
                     ))}
                   </div>
-                  <p className="text-teal italic text-lg leading-relaxed">
+                  <p className="text-teal italic text-lg leading-relaxed mb-8">
                     Experience the power of 10 therapies working together. Your body&apos;s potential for healing is extraordinary &mdash; the HOCATT helps unlock it.
                   </p>
+                  {blogLinks.length > 0 && (
+                    <div className="flex flex-wrap gap-3">
+                      {blogLinks.map((blog, i) => (
+                        <Link key={i} href={`/blog/${blog.slug}`} className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-green-accent hover:opacity-90 transition-all shadow-md">
+                          {blog.linkText} <ArrowRight size={14} />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
                   <Image
@@ -891,36 +827,7 @@ export default function ServicePage({ params }: Props) {
               {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
-              {blogNudge}
-
-              <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
-                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-sm">
-                      <ArrowRight size={32} className="text-teal" />
-                    </div>
-                  </div>
-                  <div className="flex-grow text-center md:text-left">
-                    <h2 className="text-2xl sm:text-3xl font-extrabold mb-2">
-                      Ready to Get Started?
-                    </h2>
-                    <p className="text-white/80 max-w-md">
-                      Our team is ready to answer your questions and help you take the
-                      first step toward better health.
-                    </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
-                      Book Your Appointment
-                    </Link>
-                    <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
-                      New patient info &rarr;
-                    </Link>
-                  </div>
-                </div>
-              </section>
-
-              {relatedServices.length > 0 && (
+{relatedServices.length > 0 && (
                 <section>
                   <h2 className="text-2xl font-bold text-charcoal mb-6">
                     Related Services
@@ -1019,9 +926,9 @@ export default function ServicePage({ params }: Props) {
                   </p>
                   <Link
                     href="/blog/signs-hormones-out-of-balance"
-                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-bold text-white bg-teal hover:bg-teal-600 transition-colors shadow-md uppercase tracking-wide"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-green-accent hover:opacity-90 transition-all shadow-md"
                   >
-                    Read About Hormonal Imbalance Signs
+                    Read About Hormonal Imbalance Signs <ArrowRight size={14} />
                   </Link>
                 </div>
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
@@ -1038,8 +945,8 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
-              {/* Section 3 — Sage: Interactive Symptom Explorer */}
-          <section className="bg-sage/30">
+              {/* Section 3 — Interactive Symptom Explorer */}
+          <section className="geometric-pattern-light">
             <div className="section-container py-16 sm:py-20 lg:py-24">
               <div className="max-w-4xl mx-auto text-center mb-10">
                 <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight leading-tight mb-4">
@@ -1059,36 +966,7 @@ export default function ServicePage({ params }: Props) {
               {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
-              {blogNudge}
-
-              <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
-                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-sm">
-                      <ArrowRight size={32} className="text-teal" />
-                    </div>
-                  </div>
-                  <div className="flex-grow text-center md:text-left">
-                    <h2 className="text-2xl sm:text-3xl font-extrabold mb-2">
-                      Ready to Get Started?
-                    </h2>
-                    <p className="text-white/80 max-w-md">
-                      Our team is ready to answer your questions and help you take the
-                      first step toward better health.
-                    </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
-                      Book Your Appointment
-                    </Link>
-                    <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
-                      New patient info &rarr;
-                    </Link>
-                  </div>
-                </div>
-              </section>
-
-              {relatedServices.length > 0 && (
+{relatedServices.length > 0 && (
                 <section>
                   <h2 className="text-2xl font-bold text-charcoal mb-6">
                     Related Services
@@ -1179,27 +1057,29 @@ export default function ServicePage({ params }: Props) {
           </section>
 
               {/* Section 2 — Supplement Delivery (Fullscript) */}
-          <section className="bg-white border-t border-gray-200">
+          <section className="geometric-pattern-green">
             <div className="section-container py-16 sm:py-20 lg:py-24">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-charcoal mb-6">
+                  <h3 className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-white mb-6">
                     Convenient Supplement Delivery
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-white/85 leading-relaxed">
                     Effective supplementation goes beyond powders or pills. As a Perspective Health patient, we want to equip you with trusted products and tools you need to succeed in your supplement routine &mdash; all in a convenient online and mobile app experience.
                   </p>
                 </div>
-                <div className="bg-green-accent geometric-pattern rounded-2xl p-10 text-center text-white shadow-lg">
-                  <p className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight mb-4">
+                <div className="bg-white rounded-2xl p-10 text-center shadow-lg">
+                  <p className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-charcoal mb-4">
                     Order Healthcare&apos;s Best Supplements &mdash; Delivered to Your Door.
                   </p>
-                  <Link
-                    href="/contact#contact-form"
+                  <a
+                    href="https://us.fullscript.com/welcome/perspectivehealthdispensary"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-8 py-3 rounded-full text-sm font-bold text-white bg-purple hover:bg-purple/90 transition-colors shadow-md"
                   >
                     Visit Our Store
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -1229,16 +1109,25 @@ export default function ServicePage({ params }: Props) {
                   <p className="text-gray-600 leading-relaxed mb-6">
                     {service.intro}
                   </p>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed mb-8">
                     {service.whatItIs}
                   </p>
+                  {blogLinks.length > 0 && (
+                    <div className="flex flex-wrap gap-3">
+                      {blogLinks.map((blog, i) => (
+                        <Link key={i} href={`/blog/${blog.slug}`} className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-green-accent hover:opacity-90 transition-all shadow-md">
+                          {blog.linkText} <ArrowRight size={14} />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           </section>
 
               {/* Section 4 — Patient Packages */}
-          <section className="bg-sage/30 geometric-pattern-light">
+          <section className="geometric-pattern-light">
             <div className="section-container py-16 sm:py-20 lg:py-24">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                 <div>
@@ -1264,36 +1153,7 @@ export default function ServicePage({ params }: Props) {
               {/* CTA + Related Services */}
           <section className="bg-white">
             <div className="section-container py-16 sm:py-20 lg:py-24">
-              {blogNudge}
-
-              <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
-                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-sm">
-                      <ArrowRight size={32} className="text-teal" />
-                    </div>
-                  </div>
-                  <div className="flex-grow text-center md:text-left">
-                    <h2 className="text-2xl sm:text-3xl font-extrabold mb-2">
-                      Ready to Get Started?
-                    </h2>
-                    <p className="text-white/80 max-w-md">
-                      Our team is ready to answer your questions and help you take the
-                      first step toward better health.
-                    </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
-                      Book Your Appointment
-                    </Link>
-                    <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
-                      New patient info &rarr;
-                    </Link>
-                  </div>
-                </div>
-              </section>
-
-              {relatedServices.length > 0 && (
+{relatedServices.length > 0 && (
                 <section>
                   <h2 className="text-2xl font-bold text-charcoal mb-6">
                     Related Services
@@ -1460,6 +1320,16 @@ export default function ServicePage({ params }: Props) {
                 </div>
               </section>
 
+              {blogLinks.length > 0 && (
+                <div className="flex flex-wrap gap-3 mb-12">
+                  {blogLinks.map((blog, i) => (
+                    <Link key={i} href={`/blog/${blog.slug}`} className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-green-accent hover:opacity-90 transition-all shadow-md">
+                      {blog.linkText} <ArrowRight size={14} />
+                    </Link>
+                  ))}
+                </div>
+              )}
+
               {/* FAQs */}
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-charcoal mb-6">
@@ -1493,37 +1363,7 @@ export default function ServicePage({ params }: Props) {
                 </div>
               </section>
 
-              {blogNudge}
-
-              {/* CTA */}
-              <section className="bg-purple rounded-2xl geometric-pattern p-10 sm:p-12 text-white mb-12 relative overflow-hidden">
-                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-sm">
-                      <ArrowRight size={32} className="text-teal" />
-                    </div>
-                  </div>
-                  <div className="flex-grow text-center md:text-left">
-                    <h2 className="text-2xl sm:text-3xl font-extrabold mb-2">
-                      Ready to Get Started?
-                    </h2>
-                    <p className="text-white/80 max-w-md">
-                      Our team is ready to answer your questions and help you take the
-                      first step toward better health.
-                    </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
-                    <Link href="/contact#contact-form" className="btn-teal whitespace-nowrap">
-                      Book Your Appointment
-                    </Link>
-                    <Link href="/for-patients" className="text-center text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">
-                      New patient info &rarr;
-                    </Link>
-                  </div>
-                </div>
-              </section>
-
-              {/* Related services */}
+{/* Related services */}
               {relatedServices.length > 0 && (
                 <section>
                   <h2 className="text-2xl font-bold text-charcoal mb-6">

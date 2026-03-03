@@ -32,7 +32,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
         </div>
         <div className="relative z-10 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 lg:pb-24">
-          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white -rotate-2 font-light mb-2 sm:mb-3 ml-1">
+          <p className="font-script text-5xl sm:text-6xl lg:text-7xl text-white font-light mb-2 sm:mb-3 ml-1">
             Who We Are
           </p>
           <h1 className="flex flex-col items-start gap-2 sm:gap-3">
@@ -96,15 +96,15 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="section-padding bg-sage/40 geometric-pattern-light">
+      <section className="section-padding geometric-pattern-green">
         <div className="section-container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-charcoal">
-              OUR <span className="text-teal">VALUES</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+              OUR <span className="text-white/80">VALUES</span>
             </h2>
-            <div className="w-16 h-1 bg-teal rounded-full mx-auto mt-4" />
+            <div className="w-16 h-1 bg-white rounded-full mx-auto mt-4" />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
             {[
               {
                 icon: "👁",
@@ -129,7 +129,7 @@ export default function AboutPage() {
             ].map((value) => (
               <div
                 key={value.title}
-                className="bg-white rounded-2xl p-6 shadow-md text-center"
+                className="bg-white/95 rounded-2xl p-6 shadow-md text-center"
               >
                 <div className="text-4xl mb-4">{value.icon}</div>
                 <h3 className="font-bold text-charcoal text-lg mb-2">
@@ -160,8 +160,8 @@ export default function AboutPage() {
               <article
                 key={provider.id}
                 id={provider.id}
-                className={`scroll-mt-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  idx % 2 === 1 ? "lg:flex-row-reverse" : ""
+                className={`scroll-mt-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center rounded-3xl p-8 ${
+                  idx % 2 === 0 ? "geometric-pattern-light" : "bg-white"
                 }`}
               >
                 <div className={idx % 2 === 1 ? "lg:order-2" : ""}>

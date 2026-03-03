@@ -67,6 +67,17 @@ export function ChatWidget() {
         <div className="fixed bottom-20 right-4 z-50 animate-slide-up">
           <div className="relative bg-white rounded-xl shadow-lg border border-gray-200 px-4 py-3 max-w-[220px]">
             <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowNudge(false);
+                setNudgeDismissed(true);
+              }}
+              className="absolute -top-2 -right-2 w-5 h-5 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors"
+              aria-label="Dismiss"
+            >
+              <X size={12} className="text-gray-600" />
+            </button>
+            <button
               onClick={handleOpen}
               className="text-sm text-charcoal text-left leading-snug"
             >

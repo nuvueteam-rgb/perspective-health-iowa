@@ -12,13 +12,13 @@ export function CTABanner({
   subtext = "Take the first step — our team is ready to listen.",
 }: CTABannerProps) {
   return (
-    <section className="bg-stone-50 border-t border-gray-200 py-12 sm:py-14">
-      <div className="section-container">
+    <section className="bg-purple geometric-pattern py-14 sm:py-16 relative overflow-hidden">
+      <div className="section-container relative z-10">
         <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-charcoal leading-tight mb-2">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-2">
             {heading}
           </h2>
-          <p className="text-gray-500 leading-relaxed mb-7">
+          <p className="text-white/80 leading-relaxed mb-7">
             {subtext}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -26,11 +26,11 @@ export function CTABanner({
               href="/contact#contact-form"
               className="btn-teal px-7 py-2.5 text-sm"
             >
-              Schedule a Consultation
+              Get in Touch
             </Link>
             <a
               href={`tel:${SITE_CONFIG.phoneRaw}`}
-              className="inline-flex items-center gap-2 border border-gray-300 text-charcoal font-medium px-7 py-2.5 text-sm rounded-lg hover:border-teal hover:text-teal transition-colors"
+              className="inline-flex items-center gap-2 border border-white/30 text-white font-medium px-7 py-2.5 text-sm rounded-full hover:border-white hover:bg-white/10 transition-colors"
             >
               <Phone size={15} />
               Call {SITE_CONFIG.phone}
