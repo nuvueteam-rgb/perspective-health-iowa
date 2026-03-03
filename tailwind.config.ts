@@ -10,14 +10,14 @@ const config: Config = {
     extend: {
       colors: {
         teal: {
-          DEFAULT: "#5BBCD6",
+          DEFAULT: "#00BCD4",
           50: "#EDF7FB",
           100: "#D4EDF5",
           200: "#ADDDED",
           300: "#86CDE4",
-          400: "#5BBCD6",
-          500: "#5BBCD6",
-          600: "#4AABCA",
+          400: "#00BCD4",
+          500: "#00BCD4",
+          600: "#00A5BC",
           700: "#3A8FAA",
           800: "#2B6D82",
           900: "#1C4A59",
@@ -63,9 +63,9 @@ const config: Config = {
           css: {
             color: "#2C2C2C",
             a: {
-              color: "#5BBCD6",
+              color: "#00BCD4",
               "&:hover": {
-                color: "#4AABCA",
+                color: "#00A5BC",
               },
             },
             h1: { color: "#2C2C2C" },
@@ -90,8 +90,8 @@ const config: Config = {
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
         pulseSoft: {
-          "0%, 100%": { boxShadow: "0 0 0 0 rgba(91, 188, 214, 0.4)" },
-          "50%": { boxShadow: "0 0 0 12px rgba(91, 188, 214, 0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(0, 188, 212, 0.4)" },
+          "50%": { boxShadow: "0 0 0 12px rgba(0, 188, 212, 0)" },
         },
         bounceDot: {
           "0%, 80%, 100%": { transform: "scale(0.6)", opacity: "0.4" },
