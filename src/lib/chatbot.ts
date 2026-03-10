@@ -50,7 +50,7 @@ function buildFaqPatterns(): FaqPattern[] {
     // --- Insurance & payment ---
     {
       patterns: [/\b(insurance|accepts?|coverage|plans?|wellmark|united|aetna|cigna|medicare|optum|midlands)\b/i],
-      answer: `We accept most major insurance plans, including:\n${insuranceList}\n\nWe also accept HSA/FSA funds and CareCredit. Some integrative services may be cash-pay. Call ${SITE_CONFIG.phone} to verify your specific coverage before your visit — no surprises!`,
+      answer: `We accept most major plans including ${insuranceList}. Plus HSA/FSA and CareCredit. Call ${SITE_CONFIG.phone} to verify your coverage!`,
       suggestions: ["Self-pay options", "HSA/FSA info", "How do I become a new patient?"],
     },
     {
@@ -65,36 +65,36 @@ function buildFaqPatterns(): FaqPattern[] {
     },
     {
       patterns: [/\b(carecredit|care credit|payment plan|financing)\b/i],
-      answer: `Yes, we accept CareCredit to help make healthcare more affordable! CareCredit offers flexible financing options for healthcare expenses. You can apply online or ask our team for details when you visit. We also accept HSA/FSA funds and most major insurance plans.`,
+      answer: `Yes, we accept CareCredit! You can apply online or ask our team for details. We also accept HSA/FSA and most major insurance plans.`,
       suggestions: ["What insurance do you accept?", "How do I become a new patient?"],
     },
 
     // --- Providers ---
     {
       patterns: [/\baudrey\b/i],
-      answer: `Audrey Gries, PA-C is a co-founder of Perspective Health with 15+ years of experience in primary care. She brings a compassionate, whole-person approach and has advanced training in functional medicine and hormone health. She partners with patients to uncover the root causes of their health challenges and build personalized, sustainable wellness plans.\n\nSpecialty: Primary Care & Hormone Health`,
+      answer: `Audrey Gries, PA-C — co-founder with 15+ years in primary care. She specializes in functional medicine and hormone health.`,
       suggestions: ["Tell me about Stephanie", "Tell me about Tara", "How do I schedule?"],
     },
     {
       patterns: [/\bstephanie\b/i],
-      answer: `Stephanie Erdmann, DNP is a Doctor of Nursing Practice who specializes in relationship-based care, integrative chronic disease management, and preventive wellness. She is passionate about empowering patients with the knowledge and tools to take charge of their health journey.\n\nSpecialty: Chronic Disease & Preventive Wellness`,
+      answer: `Stephanie Erdmann, DNP — specializes in chronic disease management and preventive wellness with an integrative approach.`,
       suggestions: ["Tell me about Audrey", "Tell me about Tara", "How do I schedule?"],
     },
     {
       patterns: [/\btara\b/i],
-      answer: `Tara Sayer, RN, BSN, MSCN, CNSC has 20+ years of healthcare experience combining intensive care nursing expertise with integrative medicine. She focuses on digestive health, metabolic wellness, and the connection between nutrition and health outcomes.\n\nSpecialty: Digestive Health & Clinical Nutrition`,
+      answer: `Tara Sayer, RN, BSN, MSCN, CNSC — 20+ years of experience specializing in digestive health, clinical nutrition, and integrative medicine.`,
       suggestions: ["Tell me about Audrey", "Tell me about Stephanie", "How do I schedule?"],
     },
     {
       patterns: [/\b(providers?|doctors?|staff|team|who works|practitioners?|nurse|pa\b)/i],
-      answer: `Our care team includes:\n${providerList}\n\nEach provider brings a unique perspective to our integrative approach. Want to learn more about a specific provider?`,
+      answer: `Our team:\n${providerList}\n\nWant to learn more about a specific provider?`,
       suggestions: ["Tell me about Audrey", "Tell me about Stephanie", "Tell me about Tara"],
     },
 
     // --- Services ---
     {
       patterns: [/\b(services?|offers?|do you do|what do you|treat|speciali)/i],
-      answer: `We offer a personalized blend of integrative care:\n${serviceList}\n\nOur focus areas include hormone balance, gut health, thyroid support, and metabolic care. Want details on a specific service?`,
+      answer: `We offer:\n${serviceList}\n\nWant details on a specific service?`,
       suggestions: ["Hormone Health", "Primary Care", "Digestive Health", "Functional Medicine"],
     },
     {
@@ -141,44 +141,44 @@ function buildFaqPatterns(): FaqPattern[] {
     },
     {
       patterns: [/\b(telehealth|virtual|video|remote|online visit)\b/i],
-      answer: `Yes! We offer telehealth appointments for established patients for appropriate visit types. Contact our office to determine if your needs can be addressed via telehealth — call ${SITE_CONFIG.phone} or use our Contact page when scheduling!`,
+      answer: `Yes! We offer telehealth for established patients. Call ${SITE_CONFIG.phone} to see if your visit qualifies.`,
       suggestions: ["How do I become a new patient?", "What are your hours?"],
     },
     {
       patterns: [/\b(schedule|book|appointment|make.*visit)\b/i],
-      answer: `You can schedule an appointment by:\n• Calling us at ${SITE_CONFIG.phone}\n• Emailing ${SITE_CONFIG.email}\n• Using the Contact form on our website\n\nWe'll help you find the right provider and appointment type. New patients should allow 60–90 minutes for the initial visit!`,
+      answer: `Call ${SITE_CONFIG.phone}, email ${SITE_CONFIG.email}, or use our Contact page. New patients should allow 60–90 minutes for the first visit!`,
       suggestions: ["New patient info", "What are your hours?", "Telehealth"],
     },
 
     // --- Policies & logistics ---
     {
       patterns: [/\b(cancel|reschedule|no.?show|miss.*appointment)\b/i],
-      answer: `We ask that you provide at least 24 hours' notice to cancel or reschedule an appointment. Late cancellations or no-shows may be subject to a fee. We understand unexpected situations arise — please contact us as soon as possible if you need to reschedule at ${SITE_CONFIG.phone}.`,
+      answer: `Please give at least 24 hours' notice to cancel or reschedule. Late cancellations may be subject to a fee. Call ${SITE_CONFIG.phone} if you need to make changes.`,
       suggestions: ["How do I schedule?", "What are your hours?"],
     },
     {
       patterns: [/\b(prescription|refill|medication|rx)\b/i],
-      answer: `Prescription refill requests should be submitted through your patient portal or by calling our office during business hours at ${SITE_CONFIG.phone}. Please allow 2–3 business days for refill processing. Note that controlled substances require an in-person visit.`,
+      answer: `Submit refill requests through your patient portal or call ${SITE_CONFIG.phone}. Allow 2–3 business days for processing.`,
       suggestions: ["What are your hours?", "Telehealth"],
     },
     {
       patterns: [/\b(medical record|record.*request|chart|health record)\b/i],
-      answer: `You can request your medical records by contacting our office at ${SITE_CONFIG.phone}. We comply with all HIPAA regulations regarding medical records requests and aim to fulfill requests within 30 business days.`,
+      answer: `Contact our office at ${SITE_CONFIG.phone} to request medical records. Requests are fulfilled within 30 business days.`,
       suggestions: ["Contact info", "What are your hours?"],
     },
     {
       patterns: [/\b(lab result|test result|blood work|lab.*back)\b/i],
-      answer: `Lab results are reviewed by your provider and communicated through the patient portal or by phone, depending on the nature of the results. Routine results are typically available within 5–7 business days. Abnormal or time-sensitive results will be communicated sooner. If you're waiting on results, feel free to call ${SITE_CONFIG.phone}.`,
+      answer: `Results are shared through your patient portal or by phone. Routine results take 5–7 business days. Call ${SITE_CONFIG.phone} if you're waiting.`,
       suggestions: ["Contact info", "Prescription refills"],
     },
     {
       patterns: [/\b(child|kid|pediatric|son|daughter|baby|infant|minor)\b/i],
-      answer: `Our current practice focuses on adult patients (18+). We'd be happy to help connect you with appropriate pediatric resources in the area — just call us at ${SITE_CONFIG.phone} and we can point you in the right direction!`,
+      answer: `We treat adults (18+) only. Call ${SITE_CONFIG.phone} and we can help connect you with pediatric resources!`,
       suggestions: ["What services do you offer?", "How do I become a new patient?"],
     },
     {
       patterns: [/\b(other doctor|existing doctor|current doctor|alongside|collaborative|coordinate|work with)\b/i],
-      answer: `Absolutely — and we encourage it! We believe in collaborative care and are happy to work alongside your existing healthcare team. We can coordinate care and share records as appropriate and with your consent. Your health is a team effort!`,
+      answer: `Absolutely! We're happy to work alongside your existing doctors and coordinate care with your consent.`,
       suggestions: ["What services do you offer?", "How do I become a new patient?"],
     },
 
@@ -192,14 +192,14 @@ function buildFaqPatterns(): FaqPattern[] {
     // --- Our approach & values ---
     {
       patterns: [/\b(approach|philosophy|different|why.*choose|what sets|values|mission|believe)\b/i],
-      answer: `At Perspective Health, we believe true healthcare means seeing the whole person — not just symptoms or lab values. Our approach is built on four pillars:\n\n• Collaborative Approach — our team works across disciplines to ensure every aspect of your health is considered\n• Root-Cause Focus — we invest time understanding why, not just what\n• Personalized Care Plans — built around your unique biology, lifestyle, and goals\n• Whole-Person Wellness — addressing physical health, mental wellness, and lifestyle as deeply interconnected\n\nWe combine evidence-based conventional medicine with functional and integrative approaches.`,
+      answer: `We focus on the whole person — not just symptoms. Our approach combines root-cause medicine, personalized care plans, and collaborative teamwork across disciplines.`,
       suggestions: ["Meet our providers", "Our services", "How do I get started?"],
     },
 
     // --- Reviews ---
     {
       patterns: [/\b(reviews?|ratings?|testimonials?|recommend|reputation|what.*people.*say)/i],
-      answer: `We're proud of our 5.0-star rating on Google (${SITE_CONFIG.googleReviews.count} reviews)! Our patients appreciate the time we take to truly listen and find root causes. Here's what they're saying:\n\n"I've never felt so heard by a healthcare provider. Audrey took over an hour to go through my history and we came up with a real plan." — Jennifer M.\n\n"After years of being told my labs were 'normal' while I felt terrible, Stephanie actually dug deeper." — Robert K.\n\n"Tara completely changed how I think about nutrition and gut health." — Sarah L.\n\nYou can see all our reviews on Google!`,
+      answer: `We have a ${SITE_CONFIG.googleReviews.rating}-star rating on Google with ${SITE_CONFIG.googleReviews.count} reviews! Patients love the time we take to listen and find root causes. Check out our reviews on Google!`,
       suggestions: ["Meet our providers", "How do I get started?"],
     },
   ];
