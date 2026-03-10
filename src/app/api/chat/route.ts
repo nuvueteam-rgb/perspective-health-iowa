@@ -133,12 +133,18 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await response.json();
-    const assistantMessage = data.content?.[0]?.text;
+    let assistantMessage = data.content?.[0]?.text;
 
     if (!assistantMessage) {
       return NextResponse.json({
         message: FALLBACK_MESSAGE,
       });
+    }
+
+    // Hard truncate: keep only the first 2 sentences
+    const sentences = assistantMessage.match(/[^.!?]+[.!?]+/g);
+    if (sentences && sentences.length > 2) {
+      assistantMessage = sentences.slice(0, 2).join("").trim();
     }
 
     // Detect lead capture trigger phrase in response
