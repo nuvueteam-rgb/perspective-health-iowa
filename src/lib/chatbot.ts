@@ -93,17 +93,17 @@ function buildFaqPatterns(): FaqPattern[] {
 
     // --- Services (specific first, general catch-all last) ---
     {
-      patterns: [/\b(hormone|menopause|testosterone|thyroid|perimenopause|hot flash|libido|andropause|estrogen|progesterone)\b/i],
+      patterns: [/\b(hormones?|menopause|testosterone|thyroid|perimenopause|hot flash|libido|andropause|estrogen|progesterone)/i],
       answer: `We offer personalized hormone evaluation and treatment for both men and women — including thyroid, menopause, perimenopause, and low testosterone. Our providers find root causes and create custom plans.\n\nLearn more: /services/hormone-health`,
       suggestions: ["Who are the providers?", "How do I schedule?", "Insurance"],
     },
     {
-      patterns: [/\b(gut|digest|bloat|ibs|sibo|metaboli|weight|insulin|leaky gut|microbiome|stomach|nausea|constipat|diarrhea|acid reflux|heartburn|gerd)\b/i],
+      patterns: [/\b(gut|digestiv|digest\b|bloat|ibs|sibo|metaboli|weight|insulin|leaky gut|microbiome|stomach|nausea|constipat|diarrhea|acid reflux|heartburn|gerd)/i],
       answer: `We help with digestive issues like IBS, SIBO, bloating, and metabolic concerns like insulin resistance and weight management. We use advanced testing to find root causes and build personalized treatment plans.\n\nLearn more: /services/digestive-metabolic-health`,
       suggestions: ["What insurance do you accept?", "How do I schedule?"],
     },
     {
-      patterns: [/\b(functional medicine|integrative|root cause|holistic|complementary)\b/i],
+      patterns: [/\b(functional|integrative|root cause|holistic|complementary)/i],
       answer: `Our Functional Medicine approach looks at the whole picture — instead of just managing symptoms, we dig into root causes using advanced testing and personalized treatment plans.\n\nLearn more: /services/integrative-functional-medicine`,
       suggestions: ["What insurance do you accept?", "Tell me about your providers"],
     },
