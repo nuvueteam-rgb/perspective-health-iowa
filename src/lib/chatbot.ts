@@ -91,12 +91,7 @@ function buildFaqPatterns(): FaqPattern[] {
       suggestions: ["Tell me about Audrey", "Tell me about Stephanie", "Tell me about Tara"],
     },
 
-    // --- Services ---
-    {
-      patterns: [/\b(services?|offers?|do you do|what do you|treat|speciali)/i],
-      answer: `We offer:\n${serviceList}\n\nWant details on a specific service?`,
-      suggestions: ["Hormone Health", "Primary Care", "Digestive Health", "Functional Medicine"],
-    },
+    // --- Services (specific first, general catch-all last) ---
     {
       patterns: [/\b(hormone|menopause|testosterone|thyroid|perimenopause|hot flash|libido|andropause|estrogen|progesterone)\b/i],
       answer: `We offer personalized hormone evaluation and treatment for both men and women — including thyroid, menopause, perimenopause, and low testosterone. Our providers find root causes and create custom plans.\n\nLearn more: /services/hormone-health`,
@@ -118,7 +113,7 @@ function buildFaqPatterns(): FaqPattern[] {
       suggestions: ["What insurance do you accept?", "How do I become a new patient?"],
     },
     {
-      patterns: [/\b(supplements?|iv therap|nutrition counseling|adrenal|immune)/i],
+      patterns: [/\b(supplementary|supplements?|iv therap|nutrition counseling|adrenal|immune)/i],
       answer: `We offer nutrition counseling, targeted supplements, adrenal support, and immune optimization to complement your care plan.\n\nLearn more: /services/supplementary-services`,
       suggestions: ["What services do you offer?", "How do I schedule?"],
     },
@@ -126,6 +121,11 @@ function buildFaqPatterns(): FaqPattern[] {
       patterns: [/\b(hocatt?|hoccatt?|ozone|sauna|detox)\b/i],
       answer: `Our HOCATT Ozone Sauna delivers up to 10 therapies in one 30-minute session — supporting detox, circulation, immunity, and recovery. You can book a session and pay online!\n\nSchedule: SCHEDULING_LINK_PLACEHOLDER\nPay now: SQUARE_LINK_PLACEHOLDER\n\nLearn more: /services/hocatt`,
       suggestions: ["What services do you offer?", "How do I schedule?"],
+    },
+    {
+      patterns: [/\b(services?|offers?|do you do|what do you|treat|speciali)/i],
+      answer: `We offer:\n${serviceList}\n\nWant details on a specific service?`,
+      suggestions: ["Hormone Health", "Primary Care", "Digestive Health", "Functional Medicine"],
     },
 
     // --- New patient & scheduling ---
