@@ -122,6 +122,11 @@ function buildFaqPatterns(): FaqPattern[] {
       answer: `We offer nutrition counseling, targeted supplements, adrenal support, and immune optimization to complement your care plan.\n\nLearn more: /services/supplementary-services`,
       suggestions: ["What services do you offer?", "How do I schedule?"],
     },
+    {
+      patterns: [/\b(hocatt|ozone|sauna|detox)\b/i],
+      answer: `Our HOCATT Ozone Sauna delivers up to 10 therapies in one 30-minute session — supporting detox, circulation, immunity, and recovery. You can book a session and pay online!\n\nSchedule: SCHEDULING_LINK_PLACEHOLDER\nPay now: SQUARE_LINK_PLACEHOLDER\n\nLearn more: /services/hocatt`,
+      suggestions: ["What services do you offer?", "How do I schedule?"],
+    },
 
     // --- New patient & scheduling ---
     {
@@ -354,6 +359,13 @@ We accept most major insurance plans including: ${insuranceList}
 Our clinic offers a personalized blend of functional medicine, primary care, and health consulting. Key focus areas include hormone balance, gut health, thyroid support, and metabolic care.
 
 ${servicesSummary}
+
+## HOCATT Ozone Sauna (Special Booking)
+The HOCATT is different from our other services — patients can book and pay online directly without calling the office. It delivers up to 10 therapeutic modalities in a single 30-minute session, supporting detoxification, circulation, immune function, and recovery.
+- Schedule online: SCHEDULING_LINK_PLACEHOLDER
+- Pay online: SQUARE_LINK_PLACEHOLDER
+- Learn more: /services/hocatt
+When someone asks about booking or paying for HOCATT, always direct them to the online links above instead of telling them to call the office.
 
 ## New Patients — Step by Step
 1. Reach Out: Call ${SITE_CONFIG.phone}, email ${SITE_CONFIG.email}, or use our Contact page. We'll answer questions and help find the right provider.
