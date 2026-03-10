@@ -22,6 +22,8 @@ export const SITE_CONFIG = {
     saturday: "Closed",
     sunday: "Closed",
   },
+  // Replace with actual Square Appointments link from the client
+  hocattBookingUrl: "https://square.site/book/PLACEHOLDER",
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61566951063111",
     instagram: "https://www.instagram.com/perspective_health_iowa/",

@@ -7,7 +7,7 @@ import {
   getServiceBySlug,
   getAllServiceSlugs,
 } from "@/lib/services-data";
-import { SERVICES } from "@/lib/constants";
+import { SERVICES, SITE_CONFIG } from "@/lib/constants";
 import { MedicalServiceSchema } from "@/components/seo/MedicalServiceSchema";
 import { FAQSchema } from "@/components/seo/FAQSchema";
 import SymptomExplorer from "@/components/SymptomExplorer";
@@ -768,12 +768,14 @@ export default function ServicePage({ params }: Props) {
                     ))}
                   </div>
                   <div className="mt-10">
-                    <Link
-                      href="/contact#contact-form"
-                      className="btn-teal text-base px-10 py-4"
+                    <a
+                      href={SITE_CONFIG.hocattBookingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-teal text-base px-10 py-4 inline-block"
                     >
-                      Book a Session
-                    </Link>
+                      Book &amp; Pay Online
+                    </a>
                   </div>
                 </div>
               </div>

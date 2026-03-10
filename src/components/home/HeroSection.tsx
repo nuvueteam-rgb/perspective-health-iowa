@@ -6,8 +6,8 @@ export function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-bg.jpg"
-          alt="Smiling woman representing the warm, personal care at Perspective Health Iowa"
+          src="/images/smiling-woman-warm-sunlight-perspective-health-iowa.jpg"
+          alt="Smiling woman in warm golden sunlight representing the welcoming integrative healthcare at Perspective Health Iowa in Urbandale"
           fill
           priority
           quality={90}
