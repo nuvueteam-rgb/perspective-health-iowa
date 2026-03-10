@@ -30,6 +30,13 @@ function buildFaqPatterns(): FaqPattern[] {
   const serviceList = SERVICES.map((s) => `• ${s.name}`).join("\n");
 
   return [
+    // --- Content moderation (no API call needed) ---
+    {
+      patterns: [/\b(nigger|nigga|faggot|fag|retard|kike|spic|wetback|chink|cunt)\b/i, /fuck\s*you/i, /kill\s*(your|my)self/i],
+      answer: `I'm here to help with questions about Perspective Health Iowa. Let's keep things friendly! How can I assist you today?`,
+      suggestions: ["Our Services", "Hours & Location", "How do I schedule?"],
+    },
+
     // --- Core clinic info ---
     {
       patterns: [/\b(hours?|open|close[sd]?|when)\b/i],
