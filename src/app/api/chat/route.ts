@@ -141,10 +141,14 @@ export async function POST(request: NextRequest) {
       });
     }
 
+    // Strip markdown formatting
+    assistantMessage = assistantMessage.replace(/\*\*/g, "").replace(/\*/g, "");
+
     // Hard truncate: keep only the first 2 sentences
-    const sentences = assistantMessage.match(/[^.!?]+[.!?]+/g);
-    if (sentences && sentences.length > 2) {
-      assistantMessage = sentences.slice(0, 2).join("").trim();
+    const sentenceEnds = [...assistantMessage.matchAll(/[.!?]+\s/g)];
+    if (sentenceEnds.length >= 2) {
+      const cutoff = sentenceEnds[1].index! + sentenceEnds[1][0].length;
+      assistantMessage = assistantMessage.slice(0, cutoff).trim();
     }
 
     // Detect lead capture trigger phrase in response
