@@ -74,7 +74,7 @@ export function LeadCaptureCard({ onSubmitSuccess, onDismiss }: LeadCaptureCardP
     <div className="flex items-start mb-3">
       <div className="bg-sage-100 rounded-2xl rounded-tl-sm px-4 py-4 max-w-[85%] w-full">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-semibold text-charcoal">Request a Callback</h3>
+          <h3 className="text-sm font-semibold text-charcoal">Talk to Our Team</h3>
           <button
             onClick={onDismiss}
             className="text-gray-400 hover:text-gray-600 p-0.5"

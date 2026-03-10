@@ -333,7 +333,7 @@ export function ChatWindow({ onClose, pathname }: ChatWindowProps) {
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Request a Callback pill */}
+      {/* Talk to Our Team pill */}
       {showCallbackPill && (
         <div className="px-3 pb-1 flex justify-center">
           <button
@@ -341,7 +341,7 @@ export function ChatWindow({ onClose, pathname }: ChatWindowProps) {
             className="flex items-center gap-1.5 rounded-full border border-purple/20 bg-purple/5 px-3 py-1 text-[11px] font-medium text-purple transition-colors hover:bg-purple/10 hover:border-purple/40"
           >
             <Phone className="h-3 w-3" />
-            Request a Callback
+            Talk to Our Team
           </button>
         </div>
       )}
