@@ -32,7 +32,15 @@ function buildFaqPatterns(): FaqPattern[] {
   return [
     // --- Content moderation (no API call needed) ---
     {
-      patterns: [/\b(nigger|nigga|faggot|fag|retard|kike|spic|wetback|chink|cunt)\b/i, /fuck\s*you/i, /kill\s*(your|my)self/i],
+      patterns: [
+        /\b(nigger|nigga|faggot|fag|retard|kike|spic|wetback|chink|cunt)\b/i,
+        /fuck\s*(you|off|this)/i,
+        /kill\s*(your|my)self/i,
+        /\b(porn|nude|naked|sex\b|stripper|hooker|prostitut|blow\s*job|hand\s*job|dick|pussy|cock|tits|ass\s*hole|bitch)\b/i,
+        /\b(drugs?|weed|cocaine|meth|heroin|molly|ecstasy)\b/i,
+        /\b(gay|lesbian|straight)\b.*\b(bathroom|sex|fuck)/i,
+        /\b(shoot|bomb|attack|weapon|gun)\b/i,
+      ],
       answer: `I'm here to help with questions about Perspective Health Iowa. Let's keep things friendly! How can I assist you today?`,
       suggestions: ["Our Services", "Hours & Location", "How do I schedule?"],
     },
