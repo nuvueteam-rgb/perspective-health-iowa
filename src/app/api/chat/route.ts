@@ -151,6 +151,15 @@ export async function POST(request: NextRequest) {
       assistantMessage = assistantMessage.slice(0, cutoff).trim();
     }
 
+    // Hard character limit — cut at last complete sentence within 200 chars
+    if (assistantMessage.length > 200) {
+      const truncated = assistantMessage.slice(0, 200);
+      const lastSentenceEnd = truncated.search(/[.!?][^.!?]*$/);
+      if (lastSentenceEnd > 0) {
+        assistantMessage = truncated.slice(0, lastSentenceEnd + 1).trim();
+      }
+    }
+
     // Detect lead capture trigger phrase in response
     const showLeadForm = assistantMessage.toLowerCase().includes(LEAD_CAPTURE_TRIGGER);
 
