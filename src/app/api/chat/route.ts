@@ -144,20 +144,17 @@ export async function POST(request: NextRequest) {
     // Strip markdown formatting
     assistantMessage = assistantMessage.replace(/\*\*/g, "").replace(/\*/g, "");
 
-    // Hard truncate: keep only the first 2 sentences
+    // Always cut to the last complete sentence (ending with . ! or ?)
+    const lastSentenceEnd = assistantMessage.search(/[.!?][^.!?]*$/);
+    if (lastSentenceEnd > 0) {
+      assistantMessage = assistantMessage.slice(0, lastSentenceEnd + 1).trim();
+    }
+
+    // Then enforce 2 sentence max
     const sentenceEnds = [...assistantMessage.matchAll(/[.!?]+\s/g)];
     if (sentenceEnds.length >= 2) {
       const cutoff = sentenceEnds[1].index! + sentenceEnds[1][0].length;
       assistantMessage = assistantMessage.slice(0, cutoff).trim();
-    }
-
-    // Hard character limit — cut at last complete sentence within 200 chars
-    if (assistantMessage.length > 200) {
-      const truncated = assistantMessage.slice(0, 200);
-      const lastSentenceEnd = truncated.search(/[.!?][^.!?]*$/);
-      if (lastSentenceEnd > 0) {
-        assistantMessage = truncated.slice(0, lastSentenceEnd + 1).trim();
-      }
     }
 
     // Detect lead capture trigger phrase in response

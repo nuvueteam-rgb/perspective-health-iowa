@@ -123,7 +123,7 @@ function buildFaqPatterns(): FaqPattern[] {
       suggestions: ["What services do you offer?", "How do I schedule?"],
     },
     {
-      patterns: [/\b(hocatt|ozone|sauna|detox)\b/i],
+      patterns: [/\b(hocatt?|hoccatt?|ozone|sauna|detox)\b/i],
       answer: `Our HOCATT Ozone Sauna delivers up to 10 therapies in one 30-minute session — supporting detox, circulation, immunity, and recovery. You can book a session and pay online!\n\nSchedule: SCHEDULING_LINK_PLACEHOLDER\nPay now: SQUARE_LINK_PLACEHOLDER\n\nLearn more: /services/hocatt`,
       suggestions: ["What services do you offer?", "How do I schedule?"],
     },
