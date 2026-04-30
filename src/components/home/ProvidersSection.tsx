@@ -27,12 +27,12 @@ export function ProvidersSection() {
           {PROVIDERS.map((provider) => (
             <div key={provider.id} className="provider-card">
               {/* Photo */}
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
                   src={provider.image}
                   alt={provider.imageAlt}
                   fill
-                  className="object-cover object-top transition-transform duration-500 hover:scale-105"
+                  className="object-cover object-center transition-transform duration-500 hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />

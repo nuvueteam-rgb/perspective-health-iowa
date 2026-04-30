@@ -165,12 +165,12 @@ export default function AboutPage() {
                 }`}
               >
                 <div className={idx % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] image-zoom relative">
+                  <div className="rounded-2xl overflow-hidden shadow-xl aspect-[3/4] image-zoom relative">
                     <Image
                       src={provider.image}
                       alt={provider.imageAlt}
                       fill
-                      className="object-cover object-top"
+                      className="object-cover object-center"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                   </div>
