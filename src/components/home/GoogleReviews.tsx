@@ -5,30 +5,6 @@ import { PinwheelLogo } from "@/components/ui/PinwheelLogo";
 const reviews = [
   {
     id: 1,
-    initials: "EH",
-    name: "E.H.",
-    rating: 5,
-    excerpt:
-      "My first appointment was wonderful! I felt very listened to and understood. Clear expectations and plans were discussed. The prices are given ahead of time and they work with your income and specific needs. The office was very clean and smells wonderful! I had a great experience and look forward to working with all of the providers at Perspective Health to get well and stay well!",
-  },
-  {
-    id: 2,
-    initials: "LW",
-    name: "L.W.",
-    rating: 5,
-    excerpt:
-      "I came to see Tara for nutritional guidance to avoid the middle age issues of prediabetes. She lent such wisdom and support that it does feel freeing instead of overwhelming. I\u2019m also working with Audrey on a health issue that cropped up. She is so protective and supportive. I am all in to working with all these practitioners to live a more healthy and resilient lifestyle in retirement.",
-  },
-  {
-    id: 3,
-    initials: "MG",
-    name: "M.G.",
-    rating: 5,
-    excerpt:
-      "Absolutely stunning office, unreal staff. I came here as a referral from a doctor. I was so incredibly anxious with a new environment and the unknown. Walking in and immediately greeted by staff who is incredibly detailed!",
-  },
-  {
-    id: 4,
     initials: "MS",
     name: "M.S.",
     rating: 5,
@@ -36,7 +12,7 @@ const reviews = [
       "I have NEVER met a more caring, thorough doctor than Audrey. She cares and is devoted to making sure your concerns are heard and looked into. So thankful for her!!!",
   },
   {
-    id: 5,
+    id: 2,
     initials: "AU",
     name: "A.U.",
     rating: 5,
@@ -44,7 +20,7 @@ const reviews = [
       "I had a wonderful experience with Stephanie and the entire staff. Stephanie was incredibly understanding, thorough, and took the time to really listen to my concerns. I felt heard and supported throughout my visit. The rest of the team was also kind, professional, and helpful from start to finish. I highly recommend this office to anyone looking for compassionate and attentive care!",
   },
   {
-    id: 6,
+    id: 3,
     initials: "AS",
     name: "A.S.",
     rating: 5,
