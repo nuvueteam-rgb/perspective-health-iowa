@@ -28,11 +28,11 @@ export const SITE_CONFIG = {
     facebook: "https://www.facebook.com/profile.php?id=61566951063111",
     instagram: "https://www.instagram.com/perspective_health_iowa/",
     google:
-      "https://www.google.com/maps/place/Perspective+Health+Iowa",
+      "https://www.google.com/maps/search/?api=1&query=Perspective+Health+Iowa+8860+Northpark+Dr+Urbandale+IA+50131",
   },
   googleReviews: {
     rating: 5.0,
-    count: 23,
+    count: 62,
   },
 };
 
