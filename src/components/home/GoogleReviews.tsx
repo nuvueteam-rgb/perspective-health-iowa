@@ -8,7 +8,6 @@ const reviews = [
     initials: "EH",
     name: "E.H.",
     rating: 5,
-    date: "Google Review",
     excerpt:
       "My first appointment was wonderful! I felt very listened to and understood. Clear expectations and plans were discussed. The prices are given ahead of time and they work with your income and specific needs. The office was very clean and smells wonderful! I had a great experience and look forward to working with all of the providers at Perspective Health to get well and stay well!",
   },
@@ -17,7 +16,6 @@ const reviews = [
     initials: "LW",
     name: "L.W.",
     rating: 5,
-    date: "Google Review",
     excerpt:
       "I came to see Tara for nutritional guidance to avoid the middle age issues of prediabetes. She lent such wisdom and support that it does feel freeing instead of overwhelming. I\u2019m also working with Audrey on a health issue that cropped up. She is so protective and supportive. I am all in to working with all these practitioners to live a more healthy and resilient lifestyle in retirement.",
   },
@@ -26,9 +24,32 @@ const reviews = [
     initials: "MG",
     name: "M.G.",
     rating: 5,
-    date: "Google Review",
     excerpt:
       "Absolutely stunning office, unreal staff. I came here as a referral from a doctor. I was so incredibly anxious with a new environment and the unknown. Walking in and immediately greeted by staff who is incredibly detailed!",
+  },
+  {
+    id: 4,
+    initials: "MS",
+    name: "M.S.",
+    rating: 5,
+    excerpt:
+      "I have NEVER met a more caring, thorough doctor than Audrey. She cares and is devoted to making sure your concerns are heard and looked into. So thankful for her!!!",
+  },
+  {
+    id: 5,
+    initials: "AU",
+    name: "A.U.",
+    rating: 5,
+    excerpt:
+      "I had a wonderful experience with Stephanie and the entire staff. Stephanie was incredibly understanding, thorough, and took the time to really listen to my concerns. I felt heard and supported throughout my visit. The rest of the team was also kind, professional, and helpful from start to finish. I highly recommend this office to anyone looking for compassionate and attentive care!",
+  },
+  {
+    id: 6,
+    initials: "AS",
+    name: "A.S.",
+    rating: 5,
+    excerpt:
+      "The motto here is \u201cBe Seen\u201d and they truly do see you as a person! I have never felt so heard than at any other medical practice. I recommend this practice to anyone who wills listen \ud83d\ude00",
   },
 ];
 
@@ -121,7 +142,6 @@ export function GoogleReviews() {
                       <p className="font-semibold text-charcoal text-sm">
                         {review.name}
                       </p>
-                      <p className="text-gray-400 text-xs">{review.date}</p>
                     </div>
                   </div>
                   <GoogleIcon />
